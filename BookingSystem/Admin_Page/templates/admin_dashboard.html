@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='TourOperator.css') }}">
 </head>
 <body>
  
@@ -87,6 +88,28 @@
                             </div>
                         </div>
                         </div>
+                        <div class="container">
+                          <h1 class="page-title">Tour Operators</h1>
+                          <div class="tour-guide-list">
+                              {% for operator in tour_operators %}
+                                  <div class="tour-guide-card">
+                                    <div class="profile-picture">
+                                      <img src="Image/doonaaaaa.jpg" alt="Tour Guide Profile Picture">
+                                    </div>
+                                      <div class="guide-info">
+                                          <h3 class="guide-name">{{ operator.user.first_name }} {{ operator.user.last_name }}</h3>
+                                          <h3 class="guide-name">{{ operator.user.email }}</h3>
+                                          <button class="view-btn" onclick="redirectToProfile()">View Details</button>
+                                      </div>
+                                  </div>
+                              {% else %}
+                                  <p>No Tour Operators</p>
+                              {% endfor %}
+                          </div>
+                      </div>
+
+
+                        
                       </div>
       
             <div class="tab-pane" id="admin-profile">

@@ -126,7 +126,7 @@ class TourOperator(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), unique=True, nullable=False)
     municipal = db.Column(db.String(100))
-
+    
 
 class TourGuide(db.Model, UserMixin):
     __tablename__ = 'Tour_Guide'

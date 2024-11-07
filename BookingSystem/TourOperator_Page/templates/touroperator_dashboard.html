@@ -211,8 +211,29 @@
 
             </div>
           </div>
-            </div>
 
+
+          <div class="container">
+            <h1 class="page-title">My Tour Guides</h1>
+            <div class="tour-guide-list">
+                {% for guide in tour_guides %}
+                    <div class="tour-guide-card">
+                      <div class="profile-picture">
+                        <img src="Image/doonaaaaa.jpg" alt="Tour Guide Profile Picture">
+                      </div>
+                        <div class="guide-info">
+                            <h3 class="guide-name">{{ guide.user.first_name }} {{ guide.user.last_name }}</h3>
+                            <p class="price">₱1,500 per tour</p>
+                            <div class="ratings">4.5 ★★★★☆</div>
+                            <p class="status active">Status: Active</p>
+                            <button class="view-btn" onclick="redirectToProfile()">View Profile</button>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>No tour guides available.</p>
+                {% endfor %}
+            </div>
+        </div>
   
             <!-- Account Tab -->
             <div class="tab-pane active" id="account">

@@ -55,6 +55,7 @@
                   <img src="Image/traveler.JPG" alt="Profile Picture" class="profile-pic" id="profile-pic">
                   <button class="edit-pic-btn" id="edit-pic-btn">&#9998;</button>
                 </div>
+                <h2 class="h2-guide-name"><span>{{ current_user.first_name }} {{ current_user.last_name }}</span></h2>
                 <p>Total Tours: <span id="tour-count">5</span></p>
               </div>
 
@@ -257,7 +258,7 @@
                   Current Email:
                   <button class="edit-btn" id="edit-email-btn">&#9998;</button>
                 </label>
-                <input type="email" id="current-email" value="user@example.com" disabled />
+                <input type="email" id="current-email" value="{{ current_user.email }}" disabled />
               </div>
               
               <!-- Current Password Field -->
@@ -266,7 +267,7 @@
                   Password:
                   <button class="edit-btn" id="edit-password-btn">&#9998;</button>
                 </label>
-                <input type="password" id="current-password" value="password123" disabled />
+                <input type="password" id="current-password" value="{{ current_user.email }}" disabled />
               </div>
 
               <!-- Password Confirmation Modal -->

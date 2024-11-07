@@ -268,7 +268,7 @@ def account():
     form = UpdateAccountForm()
     if form.picture.data:
         profile_img = save_picture(form.picture.data)
-        current_user.profile_img = picture_file
+        current_user.profile_img = profile_img
         db.session.commit()  # Save the new image file name to the database
     
     # Use a default image if no image file is set

@@ -22,7 +22,6 @@ def create_operator():
             role='touroperator',  # Set role as tour operator
             # confirmed=True,
         )
-
         try:
             db.session.add(new_operator)
             db.session.commit()
@@ -47,7 +46,10 @@ def admin_dashboard():
         return redirect(url_for('main.home'))  # Redirect to the main home page
 
     form = UserTourOperatorForm()  # Create an instance of the OperatorForm
-    return render_template('admin_dashboard.html', title='Admin Dashboard', form=form)  # Render the dashboard with the form
+    
+    tour_operators = TourOperator.query.all()
+    
+    return render_template('admin_dashboard.html', title='Admin Dashboard', form=form, tour_operators=tour_operators)  # Render the dashboard with the form
 
 
 @admin.route('/logout')
