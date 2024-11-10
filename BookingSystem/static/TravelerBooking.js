@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //  Traveler Calendar
 document.addEventListener('DOMContentLoaded', async function () {
   const dateInput = document.getElementById('date');
-  const tourGuideId = 31 // Replace with actual ID or set dynamically based on selection
+  const tourGuideId = 7 // Replace with actual ID or set dynamically based on selection
 
   if (!dateInput) {
       console.error("Date input field not found for Flatpickr initialization.");

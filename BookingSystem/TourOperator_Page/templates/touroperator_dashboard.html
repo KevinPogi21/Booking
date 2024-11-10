@@ -14,6 +14,12 @@
     <!-- Tour Operator Dashboard -->
 <div class="dashboard-container">
     <!-- Sidebar Navigation -->
+     <button class="btn-sidebar-toggle" id="sidebar-toggle">&#9776;
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+     </button>
+
     <nav class="side-nav">
       <h2>Operator Dashboard</h2>
       <ul>
@@ -206,23 +212,40 @@
           <div id="tour-packages-display" class="card-container">
             <!-- Sample Tour Package Card -->
             <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience beautiful islands..." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping;">
-              <img src="sample-image.jpg" alt="Tour Image" class="tour-image" />
+              <img src="sample-image.jpg" alt="Input Image" class="tour-image" />
               <h4>Island Hopping Adventure</h4>
               <p>Starting at $200</p>
               <button class="view-details-btn">See Details</button>
             </div>
-
-
             <!-- Sample Tour Package Card -->
-            <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience the beautiful islands with guided tours, beach activities, and cultural insights." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping and Snorkeling; Day 3: Cultural Exploration and Departure">
-              <div class="package-image">
-                <img src="Image/download (1).jpeg" alt="Tour Image"  />
-              </div>
+            <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience beautiful islands..." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping;">
+              <img src="sample-image.jpg" alt="Input Image"" class="tour-image" />
               <h4>Island Hopping Adventure</h4>
               <p>Starting at $200</p>
               <button class="view-details-btn">See Details</button>
             </div>
             <!-- Repeat for more tour cards as needed -->
+            <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience beautiful islands..." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping;">
+              <img src="sample-image.jpg" alt="Input Image"" class="tour-image" />
+              <h4>Island Hopping Adventure</h4>
+              <p>Starting at $200</p>
+              <button class="view-details-btn">See Details</button>
+            </div>
+
+            <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience beautiful islands..." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping;">
+              <img src="sample-image.jpg" alt="Input Image"" class="tour-image" />
+              <h4>Island Hopping Adventure</h4>
+              <p>Starting at $200</p>
+              <button class="view-details-btn">See Details</button>
+            </div>
+
+            <div class="package-card" data-name="Island Hopping Adventure" data-description="Experience beautiful islands..." data-price="$200" data-itinerary="Day 1: Arrival and Welcome; Day 2: Island Hopping;">
+              <img src="sample-image.jpg" alt="Input Image"" class="tour-image" />
+              <h4>Island Hopping Adventure</h4>
+              <p>Starting at $200</p>
+              <button class="view-details-btn">See Details</button>
+            </div>
+
           </div>
 
           <!-- Details Modal for Viewing Tour Packages -->
@@ -378,7 +401,7 @@
                 {% for guide in tour_guides %}
                     <div class="tour-guide-card">
                       <div class="profile-picture">
-                        <img src="Image/doonaaaaa.jpg" alt="Tour Guide Profile Picture">
+                        <img src="{{ url_for('static', filename='vincenzo.jpg') }}" alt="Tour Guide Profile Picture">
                       </div>
                         <div class="guide-info">
                             <h3 class="guide-name">{{ guide.user.first_name }} {{ guide.user.last_name }}</h3>

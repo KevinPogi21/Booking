@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             </a>
           </div>
         `;
-  
         tourGuideList.appendChild(guideCard);
       });
     } catch (error) {

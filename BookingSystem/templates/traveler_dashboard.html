@@ -9,8 +9,7 @@
 </head>
 <body>
 
-
-        <!-- Navbar -->
+    <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-container">
                 <a href="{{ url_for('main.traveler_dashboard') }}" class="logo">
@@ -19,20 +18,20 @@
                 <div class="navbar-links">
                   <a href="{{ url_for('main.booking') }}" class="nav-link">My Bookings</a>
 
-                  <div class="notification-container">
+                <div class="notification-container">
                     <button id="notification-bell" class="notification-bell">
                       <span class="bell-icon">&#128276;</span>
-                      <span class="notification-count">0</span> <!-- Number of notifications -->
+                      <span class="notification-count">2</span> <!-- Number of notifications -->
                     </button>
                     
-                  <div class="notification-dropdown">
+                    <div class="notification-dropdown">
                       <h3>Notifications</h3>
                       <ul class="notification-list">
                         <li class="notification-item">No Notifications</li> <!-- Example empty notification -->
                       </ul>
                       <button class="view-all-btn">View all</button>
                     </div>
-                  </div>  
+                </div>  
                   
                  <!-- Dark Mode Toggle Icon -->
                   <div class="icon dark-mode-toggle">

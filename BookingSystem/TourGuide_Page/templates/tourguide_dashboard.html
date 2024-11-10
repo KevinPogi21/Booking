@@ -104,9 +104,6 @@
 
         </section>
 
-
-
-
           <!-- Traveler Reviews Section -->
           <div class="container">
             <h2>Traveler Reviews</h2>
@@ -267,7 +264,7 @@
         <!-- Availability Tab Pane -->
         <div class="tab-pane" id="calendar">
           <div class="availability-container">
-            <h2>Manage Availability</h2>
+            <h2 class="contact-info-h2">Manage Availability</h2>
 
             <!-- Legend -->
             <div class="calendar-legend">
@@ -347,7 +344,7 @@
               </div>
               
 
-              <h2>Contact Information</h2>
+              <h2 class="contact-info-h2">Contact Information</h2>
 
               <!-- Email Section -->
               <div class="input-group">
@@ -364,7 +361,7 @@
                   Contact Number
                   <button class="edit-btn" id="guide-edit-contact-btn">&#9998;</button>
                 </label>
-                <input type="text" id="contact-number" value="{{current_user.tour_guide.contact_num }}" readonly />
+                <input type="text" id="contact-number" value="{{current_user.tour_guide.contact_num }}" disabled />
               </div>
                   
               <!-- Password Section -->

@@ -36,7 +36,7 @@ body {
     color:  white;
     text-decoration: none;
     font-weight: 700;
-    margin-left: 33px;
+    margin-left: px;
     margin-right: 20px;
     transition: .3s;
   }
@@ -45,7 +45,6 @@ body {
     color: #ff9f1c; /* Golden Orange */
   
   }
-  
   
   
     a {
@@ -126,12 +125,17 @@ body {
       width: 100%;
       width: 50px;
       height: 50px;
+      margin-top: 15px;
       border-radius: 50%; /* Circular shape */
       object-fit: cover; /* Prevent image distortion */
       border: 2px solid #4ecdc4; /* Bright Turquoise border */
       cursor: pointer;
       transition: transform 0.3s ease;
-    }
+    } 
+
+#profile-pic{
+    margin-top: 10px;
+}
   
     .profile-icon:hover {
       transform: scale(1.1); /* Slight zoom on hover */

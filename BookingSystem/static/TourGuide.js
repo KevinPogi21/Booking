@@ -718,7 +718,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Load availability and set FullCalendar
   async function loadAvailability() {
-    const tourGuideId = currentUserId; // Use the actual tour guide's ID
+    const tourGuideId = 7; // Use the actual tour guide's ID
  // Update this as necessary to dynamically retrieve the ID
     try {
         console.log(`Fetching availability data from URL: /tourguide/get_availability/${tourGuideId}`);

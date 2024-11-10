@@ -4,8 +4,6 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 
-    
-    
   }
   h1 {
     font-size: 32px;
@@ -32,7 +30,65 @@
     padding-right: 10%;
   }
   
- 
+  .p-justify{
+     text-indent: 150;
+     text-align: justify;
+  } 
+  
+
+/*hamburger Menu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1*/
+.btn-sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  z-index: 1300;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 10px(0, 0, 0, 0.3);
+}
+  
+ .side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+  /* Sidebar Navigation */
+.side-nav {
+  width: 200px;
+  background-color: #1A535C;
+  color: white;
+  padding: 20px;
+  padding-top: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.side-nav.hidden {
+  transform: translateX(-100%);
+}
+
+.btn-sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+.btn-sidebar-toggle .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+}
+
     /* =======================
    Header Styles
 ======================= */
@@ -70,9 +126,7 @@
 
 .public-navbar a:hover {
   color: #ff9f1c; /* Golden Orange */
-
 }
-
 
 
   a {
@@ -165,10 +219,6 @@
   }
 
 
-
-
-
-
   /* Section Backgrounds */
   .section-light {
     background-color: #f0f0f0; /* Light Gray */
@@ -179,18 +229,19 @@
   .container{
     min-height: 100vh;
     margin-top: 70px;
+    padding-top: 30px;
+    margin-right: 30px;
   }
 
   .page-title {
-    margin-top: 11
-    0px;
+    margin-top: 0px;
   }
 
   /* Tour Guide List - Responsive Grid Layout */
   .tour-guide-list {
     flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+   /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     margin-left: 40px;
     padding: 0px;
     margin-top: 40px;
@@ -198,7 +249,7 @@
     justify-content: center;
   }
 
-  /* Tour Guide Card - Flexbox for Consistent Layout */
+  /* Tour Guide Card - Flexbox for Consistent Layout!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
   .tour-guide-card {
     display: flex;
     flex-direction: column; /* Stack items vertically */
@@ -208,7 +259,7 @@
     max-width: 380px; /* Maintain consistent width */
     background-color: #f0f0f0;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     padding: 15px;
     transition: transform 0.3s ease;
     overflow: hidden;
@@ -231,7 +282,7 @@
     object-fit: cover; /* Prevent image distortion */
   }
 
-  /* Guide Info Section */
+  /* Guide Info Section !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
   .guide-info {
     display: flex;
     flex-direction: column; /* Stack content vertically */
@@ -239,7 +290,7 @@
     justify-content: space-between; /* Spread content evenly */
     gap: 10px;
     padding-top: 10px;
-    align-items: flex-start; /* Align content to the left */
+    align-items: center; /* Align content to the left */
     width: 100%; /* Ensure content takes full width */
   }
 
@@ -249,7 +300,7 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: #2b2d42; /* Dark Charcoal */
-    text-align: left; /* Ensure text aligns to the left */
+    text-align: center; /* Ensure text aligns to the left */
     width: 100%;
   }
 
@@ -259,11 +310,11 @@
 
 
 
-  /* Price */
+  /* Price  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1*/
   .price {
     font-size: 16px;
     color: #2b2d42; /* Dark Charcoal */
-    text-align: left; /* Ensure price aligns to the left */
+    text-align: center; /* Ensure price aligns to the left */
     margin-top: 0px;
     margin-bottom: 10px;
     width: 100%; /* Ensure full width alignment */
@@ -276,7 +327,7 @@
     padding: 10px;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s;
     width: 100%; /* Full width button */
@@ -304,7 +355,6 @@
     width: 100%;
   }
   
-  
   input, select, textarea {
     width: 100%;
     padding: 10px;
@@ -320,7 +370,6 @@
   textarea {
     resize: none;
   }
-  
 
   .form_container {
     display: flex;
@@ -354,7 +403,7 @@
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #4ecdc4;
+    border: 5px solid #4ecdc4;
   }
 
   /* Profile Details */
@@ -443,7 +492,7 @@
     background-color: #e0f7f5; /* Light Turquoise Background */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
   }
 
   /* Section Headings */
@@ -490,7 +539,7 @@
     background-color: #e0f7f5; /* Light Turquoise Background */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow */
   }
 
   /* Section Headings */
@@ -535,8 +584,7 @@
     }
   }
 
-
-  /* Traveler Reviews Section */
+  /* Traveler ts Section */
   .traveler-reviews {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -553,7 +601,7 @@
     width: 100%;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     overflow: hidden;
     margin-bottom: 20px;
     display: flex;
@@ -574,6 +622,7 @@
   /* Review Content */
   .review-content {
     padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 
   /* Traveler Info */
@@ -609,14 +658,14 @@
   .tour-name {
     margin-top: -5px;
     font-size: 14px;
-    color: #555;
+    color: #555; 
     font-style: italic;
   }
-
-  /* Ratings */
+  /* Ratings !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   .ratings {
     margin-top: -7px;
     font-size: 14px;
+    text-align: center;
     color: #ff9f1c;
   }
 
@@ -685,7 +734,7 @@
   
   .booking-form {
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     position: sticky;
     height: fit-content;
     padding: 20px;
@@ -831,11 +880,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    background-color: rgba(0, 0, 0, 0.6); /* Black with transparency */
     backdrop-filter: blur(5px); /* Blur the background */
     z-index: 200; /* Above everything */
     justify-content: center;
     align-items: center;
+    margin: 20px;
   }
 
   /* Modal Content */
@@ -870,13 +920,13 @@
   .note-section {
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.05); /* Light black with transparency */
+    background-color: rgba(0, 0, 0, 0.5); /* Light black with transparency */
     padding: 15px;
     margin-top: 50px;
     margin-bottom: 15px;
     border-radius: 8px;
     width: 90%; /* Adapts to parent container */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow */
   }
 
 
@@ -900,7 +950,7 @@
     color: #fff;
     padding: 15px 20px;
     border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 300; /* Above the modal */
   }
 

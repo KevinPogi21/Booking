@@ -30,8 +30,6 @@ body {
   padding-left: 10%;
   padding-right: 10%;
 }
-
-
     /* =======================
    Header Styles
 ======================= */
@@ -71,6 +69,28 @@ body {
   color: #ff9f1c; /* Golden Orange */
 
 }
+  /*Adjsut for Mobile View*/
+  @media (max-width : 786px) {
+    .btn-sidebar-toggle {
+     display: block;
+    }
+ 
+   .side-nav{
+   transform: translateX(0);
+ }
+ 
+   .tab-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+ 
+   .dashboard-container {
+   padding: 10px;
+   margin-left: 0;
+ }
+ }
+ 
 
 
 
@@ -78,6 +98,7 @@ body {
     color: #4ecdc4; /* Bright Turquoise */
     text-decoration: none;
     transition: color 0.3s;
+    padding-left: -10px;
   }
   
   a:hover {
@@ -142,16 +163,17 @@ body {
   }
 
   /* Profile Icon */
-  .profile-container {
+  .profile-container-nav {
     display: flex;
     align-items: center;
     margin: 0%;
   }
 
   .profile-icon {
-    width: 100%;
+    width: 50%;
     width: 50px;
     height: 50px;
+    margin-top: 5px;
     border-radius: 50%; /* Circular shape */
     object-fit: cover; /* Prevent image distortion */
     border: 2px solid #4ecdc4; /* Bright Turquoise border */
@@ -163,11 +185,11 @@ body {
     transform: scale(1.1); /* Slight zoom on hover */
   }
 
-/* Tabs Panel (Left) */
+/* Tabs Panel (Left) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .tabs-panel {
   width: 200px;
   position: sticky; /* Stick to the top while scrolling */
-  top: 110px; /* Ensure space between the navbar and the panel */
+  top: 120px; /* Ensure space between the navbar and the panel */
   height: fit-content;
   background-color: #1A535C;
   padding: 20px;
@@ -302,12 +324,12 @@ body {
   margin-top: 70px;
 }
 
-/* Content Area (Right) */
+/* Content Area (Right) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .content-area {
   flex-grow: 1;
   margin-left: 40px;
   padding: 0px;
-  margin-top: 40px;
+  margin-top: 18px;
 }
 
 /* Content Sections */
@@ -408,7 +430,6 @@ body {
     box-sizing: border-box;
   }
   
-
   #cropper-container {
     height: 250px; /* Adjust the cropper height */
   }
@@ -418,6 +439,8 @@ body {
 #my-tours-section {
   margin-top: 30px;
   padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 /* Toggle Buttons */
@@ -425,6 +448,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .toggle-btn {
@@ -526,8 +550,12 @@ body {
   padding: 20px;
   background-color: #f7fff7;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-top: 20px;
+}
+
+.content-section{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Eye Icon Styling */
@@ -847,6 +875,169 @@ button {
   background-color: #e63946; /* Slightly darker red */
   width: 100%;
 }
+
+#logout-section {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Notification Bell Icon !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-bell {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.bell-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.notification-count {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+
+/* Notification Dropdown */
+.notification-dropdown {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 62px;
+  right: 1;
+  width: 350px;
+  max-height: 300px;
+  background-color: #1A535C; /* Deep Cyan */
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+  z-index: 10;
+  font-family: Arial, sans-serif;
+
+}
+
+.notification-dropdown h3 {
+  margin: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.view-all-btn {
+
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  background-color: #4ecdc4; /* Bright Turquoise */
+  color: #1A535C;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+}
+
+.view-all-btn:hover {
+  background-color: #1a535c; /* Golden Orange */
+  color: white;
+}
+
+/* Show dropdown when active */
+.notification-container.active .notification-dropdown {
+  display: block;
+ 
+}
+
+
+  /* Icon Styles!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  .icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  /* Notification Icon */
+  .notification .notification-count {
+    position: absolute;
+    top: -5px;
+    right: -1px;
+    background-color: #ff595e; /* Red background for notification count */
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: white;
+  }
+  
+  span.dark-mode {
+    font-size: 24;
+    color: white;
+  }
+  
+  /* Dark Mode Icon */
+  .dark-mode-toggle {
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* Dark Mode Background */
+  body.dark-mode {
+    background-color: #2b2d42; /* Dark Background */
+    color: #f7fff7; /* Light Text */
+  }
+  
+  .navbar.dark-mode {
+    background-color: #1a1a2e; /* Darker Navbar */
+    color: white;
+  }
+  
+  .profile-icon.dark-mode {
+    border-color: #f7fff7; /* Adjust profile picture border in dark mode */
+  }
+  
+  /* Additional Dark Mode Toggle Styles */
+  .dark-mode-icon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  
+
+  
+
+
+
+
+
+
 
 
 
