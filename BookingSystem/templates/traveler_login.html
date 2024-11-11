@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - PinoyGabay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Signup_design.css') }}">
+</head>
+<body>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay"></div>
+
+  <!-- Login Modal Content -->
+  <div class="modal">
+    <div class="form-section">
+      <h1>Log In to Your Account</h1>
+      <p class="subtitle">Welcome back! Please log in to continue.</p>
+
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+          <!-- Close Button in the Top-Right Corner -->
+          <button class="close-btn" id="close-modal">&times;</button>
+
+        </div>
+        
+        <div class="input-container">
+          <label for="email">Email</label>
+          
+          {% if form.email.error %}
+              {{ form.email(class="form-control is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.email.error %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.email(class="form-control") }}
+          {% endif %}
+        </div>
+
+        <div class="input-container">
+          <label for="password">Password</label>
+          
+          {% if form.password.error %}
+              {{ form.password(class="form-control is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.password.error %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.password(class="form-control") }}
+          {% endif %}
+        </div>
+        <p style="margin-bottom: 20px;"><a href="{{ url_for('main.traveler_reset_request') }}" id="forgot-password-link">Forgot Password?</a></p>
+        <div class="button-container">
+          <button type="submit" class="primary-btn">Log In</button>
+        </div>
+
+      </form>
+      
+      <div class="form-footer">
+        <p>Don't have an account? <a href="{{ url_for('main.traveler_register') }}">Sign Up</a></p>  <!-- Link to Sign-Up Page -->
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get references to elements
+    const modal = document.querySelector('.modal');
+    const overlay = document.querySelector('.modal-overlay');
+    const closeModalButton = document.getElementById('close-modal');
+    
+    // Close and redirect to home when 'X' is clicked
+    closeModalButton.addEventListener('click', () => {
+      window.location.href = '{{ url_for("main.home") }}'; // Redirect to home page
+    });
+    
+    // Close and redirect to home when clicking outside the modal
+    overlay.addEventListener('click', () => {
+      window.location.href = '{{ url_for("main.home") }}'; // Redirect to home page
+    });
+    
+      </script>
+</body>
+</html>
+
+

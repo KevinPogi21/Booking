@@ -1,0 +1,350 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Traveler Profile</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='TravelerProfile.css') }}"defer>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    </head>
+      <body>
+        <!-- Top Sticky Navbar -->
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="navbar-container">
+              <a href="{{ url_for('main.traveler_dashboard') }}" class="logo">
+                  <span style="color: #ff9f1c; font-weight: 800;">Pinoy</span><span style="font-weight: 800;">Gabay.</span>
+              </a>
+              <div class="navbar-links">
+                <a href="{{ url_for('main.booking') }}" class="nav-link">My Bookings</a>
+    
+                <!-- Profile Icon -->
+                <div class="profile-container-nav">
+                  <a href="{{ url_for('main.account') }}">
+                      <img class= "profile-icon" id="profile-pic" src="{{ url_for('static', filename='profile_pics/' + current_user.profile_img) }}" alt="Profile Picture">
+                    </a>
+                </div>
+    
+              </div>
+          </div>
+        </nav>
+
+        <!-- Main Profile Container -->
+        <div class="profile-container">
+          <!-- Left Sticky Tabs Panel -->
+          <aside class="tabs-panel">
+            <h2>My Page</h2>
+            <nav> 
+              <ul>
+                <li><a href="#profile-section" class="tab-link">Profile</a></li>
+                <li><a href="#my-tours-section" class="tab-link">My Tours</a></li>
+                <li><a href="#my-reviews-section" class="tab-link">My Reviews</a></li>
+                <li><a href="#account-section" class="tab-link">Account</a></li>
+                <li><a href="{{ url_for('main.logout') }}" class="nav-link" data-tab="logout">Log Out</a></li>
+              </ul>
+            </nav>
+          </aside>
+
+          <!-- Right Content Section -->
+          <main class="content-area">
+        
+            <!-- Profile Section -->
+            <section id="profile-section" class="content-section">
+              <h2>Profile</h2>
+              <div class="profile-overview">  
+                <div class="profile-pic-container">
+                  <img class= "profile-pic"  id="profile-pic" src="{{ url_for('static', filename='profile_pics/' + current_user.profile_img) }}" alt="Profile Picture">
+
+                  <button class="edit-pic-btn" id="edit-pic-btn">&#9998;</button>
+                </div>
+                <h2 class="h2-guide-name"><span>{{ current_user.first_name }} {{ current_user.last_name }}</span></h2>
+                <p>Total Tours: <span id="tour-count">5</span></p>
+              </div>
+
+              <!-- Confirmation Modal -->
+              <div id="confirm-modal" class="modal hidden">
+                <div class="modal-content">
+                <h3>Change Profile Picture</h3>
+                <p>Do you want to change your profile picture?</p>
+                  <div class="modal-button-container">
+                    <button class="cancel-btn" id="cancel-change-btn">No</button>
+                    <button class="confirm-btn" id="confirm-change-btn">Yes</button>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Cropper Modal -->
+              <div id="cropper-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h3>Adjust Your Picture</h3>
+                  <div id="cropper-container"></div>
+                    <div class="modal-button-container">
+                      <button class="cancel-btn" id="close-cropper-modal">Close</button>
+                      <button class="confirm-btn" id="crop-btn">Crop and Save</button>
+                    </div>
+                </div>
+              </div>
+              <input type="file" id="upload-pic" class="hidden" accept="image/*">
+            </section>
+
+            <!-- My Tours Section -->
+            <section id="my-tours-section" class="content-section">
+              <h2>My Tours</h2>
+
+              <!-- Toggle Buttons for Categories -->
+              <div class="tour-toggle-buttons">
+                <button class="toggle-btn active" data-status="all">All (3)</button>
+                <button class="toggle-btn" data-status="upcoming">Upcoming (1)</button>
+                <button class="toggle-btn" data-status="completed">Completed (1)</button>
+                <button class="toggle-btn" data-status="cancelled">Cancelled (1)</button>
+              </div>
+                  
+              <!-- Tours Container -->
+              <div class="tours-container">
+                <!-- Tour Card Example -->
+                <div class="tour-card" data-status="upcoming">
+                  <div class="tour-header">
+                    <h3 class="tour-title">Island Hopping Tour</h3>
+                    <span class="tour-status upcoming">Upcoming</span>
+                  </div>
+                  <p class="tour-date">October 20, 2024</p>
+                  <div class="tour-header">
+                    <p class="tour-guide">With: <span class="guide-name">Vincenzo Cassano</span></p>
+                    <span class="view-booking" onclick="openBookingDetails('Booking #123')">View Booking &rarr;</span>
+                  </div>
+                </div>
+                  
+                <div class="tour-card" data-status="completed">
+                  <div class="tour-header">
+                    <h3 class="tour-title">Mountain Trekking</h3>
+                    <span class="tour-status completed">Completed</span>
+                  </div>
+                  <p class="tour-date">October 5, 2024</p>
+                  <div class="tour-header">
+                    <p class="tour-guide">With: <span class="guide-name">Mark Lee</span></p>
+                    <span class="view-booking" onclick="openBookingDetails('Booking #124')">View Booking &rarr;</span>
+                  </div>
+                </div>
+                
+                <div class="tour-card" data-status="cancelled">
+                  <div class="tour-header">
+                    <h3 class="tour-title">City Exploration</h3>
+                    <span class="tour-status cancelled">Cancelled</span>
+                  </div>
+                  <p class="tour-date">September 15, 2024</p>
+                  <div class="tour-header">
+                    <p class="tour-guide">With: <span class="guide-name">Amy Cooper</span></p>
+                    <span class="view-booking" onclick="openBookingDetails('Booking #125')">View Booking &rarr;</span>
+                  </div>
+                </div>
+              </div>
+                  
+              <!-- Booking Details Modal -->
+              <div id="booking-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h3>Booking Details</h3>
+                  <p id="booking-info">Here will be the booking details...</p>
+                  <button class="primary-btn" id="close-booking-modal">Close</button>
+                </div>
+              </div>
+            </section>
+                  
+            <!-- My Reviews Section -->
+            <section id="my-reviews-section" class="content-section">
+              <h2>My Reviews 
+                <span id="toggle-reviews" class="toggle-icon">&#128065;</span> <!-- Eye Icon -->
+              </h2>
+
+              <!-- To Review Card -->
+              <div class= "to-review-card">
+                <img src="Image/tourguide.jpg" alt="Tour Guide" class="guide-photo" />
+                <div class="review-info">
+                  <h3>Island Hopping Tour</h3>
+                  <p>Guide: Jane Doe</p>
+                </div>
+                <button class="review-btn" data-guide="Jane Doe" data-tour="Island Hopping Tour">Review</button>
+              </div>
+
+              <!-- Reviews Grid -->
+              <div id="reviews-container" class="traveler-reviews-grid hidden">
+                
+                <!-- Review Card -->
+                <div class="review-card">
+                  <img src="Image/travelerr.JPG" alt="Tour Picture" class="tour-image" />
+                  <div class="review-content">
+                    <div class="traveler-info">
+                      <img src="Image/traveler.JPG" alt="Traveler Picture" class="traveler-pic" />
+                      <div class="traveler-details">
+                        <h3>Hyunwoo</h3>
+                        <p class="tour-name">Island Tour</p>
+                        <div class="ratings">4.2 ★★★★☆</div>
+                      </div>
+                    </div>
+
+                    <p class="review-text">
+                      Had an amazing experience! The guide was knowledgeable and friendly.
+                    </p>
+
+                    <div class="review-footer">
+                      <p class="review-date">Oct. 10, 2024</p>
+                      <p class="toured-by">Toured by: <span class="tour-guide-name">Tour Guide 1</span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Review Card -->
+                <div class="review-card">
+                  <img src="Image/travelerr.JPG" alt="Tour Picture" class="tour-image" />
+                  <div class="review-content">
+                    <div class="traveler-info">
+                      <img src="Image/traveler.JPG" alt="Traveler Picture" class="traveler-pic" />
+                      <div class="traveler-details">
+                        <h3>Hyunwoo</h3>
+                        <p class="tour-name">Island Tour</p>
+                        <div class="ratings">4.2 ★★★★☆</div>
+                      </div>
+                    </div>
+
+                    <p class="review-text">
+                      Had an amazing experience! The guide was knowledgeable and friendly.
+                    </p>
+
+                    <div class="review-footer">
+                      <p class="review-date">Oct. 10, 2024</p>
+                      <p class="toured-by">Toured by: <span class="tour-guide-name">Tour Guide 1</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review Modal -->
+              <div id="review-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h2>How was your tour?</h2>
+                  <!-- Star Rating -->
+                  <div class="star-rating" id="star-rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                  </div>
+
+                  <h3>Leave a Review</h3>
+                  <form id="review-form">
+                    <div class="input-container">
+                      <textarea id="review-text" rows="5" placeholder="Write your review here..." required></textarea>
+                    </div>
+
+                    <div class="input-container">
+                      <label for="review-image">Upload Photo</label>
+                      <input type="file" id="review-image" accept="image/*" />
+                    </div>
+
+                  </form>
+                  <div class="modal-button-container">
+                    <button type="button" class="cancel-btn" id="close-review-modal">Cancel</button>
+                    <button type="submit" class="confirm-btn">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Account Section -->
+            <section id="account-section" class="content-section">
+              <h2>Account Settings</h2>
+
+              <!-- Current Email Field -->
+              <div class="input-group">
+                <label for="current-email">
+                  Current Email:
+                  <button class="edit-btn" id="edit-email-btn">&#9998;</button>
+                </label>
+                <input type="email" id="current-email" value="{{ current_user.email }}" disabled />
+              </div>
+              
+              <!-- Current Password Field -->
+              <div class="input-group">
+                <label for="current-password">
+                  Password:
+                  <button class="edit-btn" id="edit-password-btn">&#9998;</button>
+                </label>
+                <input type="password" id="current-password" value="{{ current_user.password }}" disabled />
+              </div>
+
+              <!-- Password Confirmation Modal -->
+              <div id="password-confirm-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h3>Enter Password</h3>
+                  <input type="password" id="confirm-password-input" placeholder="Enter your password" />
+                  <div class="modal-button-container">
+                    <button class="cancel-btn" id="password-cancel-btn">Cancel</button>
+                    <button class="confirm-btn" id="password-confirm-btn">Confirm</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Change Email Modal -->
+              <div id="change-email-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h3>Change Email</h3>
+                  <label for="new-email">New Email:</label>
+                  <input type="email" id="new-email-input" placeholder="Enter new email" />
+                  <div class="modal-button-container">
+                    <button class="cancel-btn" id="cancel-email-btn">Cancel</button>
+                    <button class="confirm-btn" id="save-email-btn">Save Email</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Change Password Modal -->
+              <div id="change-password-modal" class="modal hidden">
+                <div class="modal-content">
+                  <h3>Change Password</h3>
+                  <label for="new-password">New Password:</label>
+                  <input type="password" id="new-password" placeholder="Enter new password" />
+
+                  <label for="confirm-new-password">Confirm New Password:</label>
+                  <input type="password" id="confirm-new-password" placeholder="Confirm new password" />
+
+                  <div class="modal-button-container">
+                    <button class="cancel-btn" id="cancel-password-btn">Cancel</button>
+                    <button class="confirm-btn" id="save-password-btn">Save Password</button>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+            <!-- Logout Section -->
+            <section id="logout-section" class="content-section">
+              <h2>Log Out</h2>
+              <button class="logout-btn" id="open-logout-modal">Log Out</button>
+            </section>
+
+            <!-- Logout Confirmation Modal -->
+            <div id="logout-modal" class="modal hidden">
+              <div class="modal-content">
+                <h3>Confirm Log Out</h3>
+                <p>Are you sure you want to log out?</p>
+                <div class="modal-button-container">
+                  <button class="cancel-btn" id="cancel-logout">Cancel</button>
+                  <a href="{{ url_for('main.logout') }}">
+                    <button class="logout-btn" id="confirm-logout">Log Out</button>
+                  <a/>
+                </div>
+              </div>
+            </div>
+
+          </main>
+          <!-- Modal Overlay -->
+          <div id="modal-overlay" class="modal-overlay hidden"></div>
+
+        </div>
+
+        <script src="{{ url_for('static', filename='TravelerProfile.js') }}"defer></script>
+      </body>
+    </html>
+
+

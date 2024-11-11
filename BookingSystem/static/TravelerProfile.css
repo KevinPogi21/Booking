@@ -1,0 +1,854 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  color: #2b2d42;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #1a535c;
+}
+
+/* Body and Background */
+body {
+  background-color: #f7fff7; /* Off White */
+  color: #2b2d42; /* Dark Charcoal */
+  padding: 0%;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+    /* =======================
+   Header Styles
+======================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: #1A535C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100; 
+}
+
+.logo {
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.public-navbar a {
+  font-size: 18px;
+  color:  white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 33px;
+  margin-right: 20px;
+  transition: .3s;
+}
+
+.public-navbar a:hover {
+  color: #ff9f1c; /* Golden Orange */
+
+}
+
+
+
+  a {
+    color: #4ecdc4; /* Bright Turquoise */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #ff9f1c; /* Golden Orange */
+  }
+    
+  /* Navbar Styling */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #1A535C; /* Deep Cyan */
+    padding: 5px 5px;
+    color: white;
+    z-index: 100;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  }
+
+  /* Navbar Container with Body Alignment */
+  .navbar-container {
+    max-width: 100%; /* Full width */
+    padding-left: 10%; /* Same padding as the body */
+    padding-right: 10%; /* Same padding as the body */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+    
+  .navbar a {
+    font-size: 18px;
+    color:  white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 33px;
+    margin-right: 20px;
+    transition: .3s;
+  }
+
+  .navbar a:hover {
+    color: #ff9f1c; /* Golden Orange */
+  }
+
+  /* Navbar Links Adjustments */
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Navbar Adjustment on Small Screens */
+  @media (max-width: 480px) {
+    .navbar-container {
+      flex-direction: column; /* Stack links vertically */
+      gap: 10px;
+    }
+
+    .nav-link {
+      font-size: 16px; /* Adjust font size */
+    }
+  }
+
+  /* Profile Icon */
+  .profile-container {
+    display: flex;
+    align-items: center;
+    margin: 0%;
+  }
+
+  .profile-icon {
+    width: 100%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover; /* Prevent image distortion */
+    border: 2px solid #4ecdc4; /* Bright Turquoise border */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .profile-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+
+/* Tabs Panel (Left) */
+.tabs-panel {
+  width: 200px;
+  position: sticky; /* Stick to the top while scrolling */
+  top: 110px; /* Ensure space between the navbar and the panel */
+  height: fit-content;
+  background-color: #1A535C;
+  padding: 20px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 0; /* Remove margin to avoid additional gap */
+  text-align: center;
+}
+
+.tabs-panel h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #4ecdc4; /* Bright Turquoise */
+  text-align: center;
+}
+
+.tabs-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Add spacing between the links */
+}
+
+.tabs-panel a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tabs-panel a:hover,
+.tabs-panel a.active {
+  background-color: #FF9F1C;
+}
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1001;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: none;
+}
+
+.modal-overlay.show {
+  display: block;
+}
+
+/* Modal Content Alignment */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+
+/* Button Container */
+.modal-button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 20px; /* Space between buttons */
+  margin-top: 15px; /* Space from other elements */
+}
+
+/* Modal Cancel Button: Text-like Style */
+.cancel-btn {
+  background: none;
+  border: none;
+  color: #1A535C; /* Subtle dark cyan */
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.cancel-btn:hover {
+  color: #4ecdc4; /* Bright turquoise on hover */
+  text-decoration: underline; /* Optional underline on hover */
+}
+
+/* Modal Save or Confirm */
+.confirm-btn {
+  background-color: #4ecdc4; /* Bright turquoise */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #3cb1a2; /* Slightly darker turquoise on hover */
+}
+
+
+
+/* Profile Container */
+.profile-container {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 70px;
+}
+
+/* Content Area (Right) */
+.content-area {
+  flex-grow: 1;
+  margin-left: 40px;
+  padding: 0px;
+  margin-top: 40px;
+}
+
+/* Content Sections */
+.content-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+/* My Tours Section */
+#profile-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: none;
+  border: #4ecdc4 solid 2px;
+  box-shadow: none;
+}
+
+/* Profile Section */
+.profile-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  gap: 15px; /* Add spacing between elements */
+  margin-top: 20px;
+}
+
+/* Profile Picture Container */
+.profile-pic-container {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #4ecdc4;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.profile-pic:hover {
+  opacity: 0.8;
+}
+
+.edit-pic-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #ff9f1c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.edit-pic-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Cropper-specific modal container */
+#cropper-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+  
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* Hide Upload Input */
+#upload-pic {
+  display: none;
+}
+
+
+
+/* Adjusting Modal Layout for Small Screens */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%; /* Take more width on very small screens */
+    max-width: none; /* Allow it to expand if needed */
+    margin: 20px; /* Add spacing from the edges */
+    padding: 15px; /* Reduce padding slightly */
+    box-sizing: border-box;
+  }
+  
+
+  #cropper-container {
+    height: 250px; /* Adjust the cropper height */
+  }
+}
+
+/* My Tours Section */
+#my-tours-section {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+/* Toggle Buttons */
+.tour-toggle-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  background-color: #4ecdc4;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn.active {
+  background-color: #1A535C; /* Active state */
+}
+
+.toggle-btn:hover {
+  background-color: #38bfb0; /* Hover effect */
+}
+
+/* Tours Container */
+.tours-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Tour Card */
+.tour-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  min-height: 100px;
+  background-color: none;
+  border: #4ecdc4 solid 2px;
+}
+
+/* Tour Header */
+.tour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tour Status */
+.tour-status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.tour-status.upcoming {
+  background-color: #4ecdc4;
+}
+
+.tour-status.completed {
+  background-color: #ff9f1c;
+}
+
+.tour-status.cancelled {
+  background-color: #e63946;
+}
+
+/* View Booking Link */
+.view-booking {
+  font-size: 14px;
+  color:#FF9F1C;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.view-booking:hover {
+  color: #e68a00;
+}
+
+/* Tour Date and Guide Name */
+.tour-date,
+.tour-guide {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 5px 0;
+}
+
+.guide-name {
+  font-weight: bold;
+  color: #1a535c;
+}
+
+
+/* My Reviews Section */
+#my-reviews-section {
+  padding: 20px;
+  background-color: #f7fff7;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Eye Icon Styling */
+.toggle-icon {
+cursor: pointer;
+font-size: 24px;
+margin-left: 10px;
+transition: color 0.3s;
+}
+
+.toggle-icon:hover {
+color: #4ecdc4; /* Bright Turquoise */
+}
+
+/* Hidden Class to Hide the Reviews */
+.hidden {
+display: none;
+}
+
+/* Reviews Container - Hidden by Default */
+.hidden {
+display: none;
+}
+
+
+/* Review Card */
+.to-review-card{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Guide Photo */
+.guide-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* Review Info */
+.review-info {
+  flex-grow: 1;
+}
+
+.review-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #2b2d42;
+}
+
+.review-info p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+/* Review Button */
+.review-btn {
+  background-color: #ff9f1c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.review-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.star {
+  font-size: 32px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star.active {
+  color: #ff9f1c;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  resize: none; /* Disable resizing */
+  font-size: 16px;
+}
+
+
+
+/* Reviews Grid */
+.traveler-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+/* Review Card */
+.review-card { 
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+/* Tour Image */
+.tour-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #e0f7f5;
+}
+
+/* Review Content */
+.review-content {
+  padding: 15px;
+}
+
+/* Traveler Info */
+.traveler-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* Traveler Picture */
+.traveler-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4ecdc4;
+}
+
+/* Traveler Details */
+.traveler-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.traveler-details h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2b2d42;
+}
+
+.tour-name {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Ratings */
+.ratings {
+  font-size: 14px;
+  color: #ff9f1c;
+}
+
+/* Review Text */
+.review-text {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #2b2d42;
+  line-height: 1.5;
+}
+
+/* Review Footer */
+.review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #4ecdc4;
+}
+
+.toured-by .tour-guide-name {
+  font-weight: bold;
+  color: #ff9f1c;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4ecdc4;
+}
+
+/* Buttons */
+.edit-btn, .save-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* Input, Select, and Textarea Styling */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4ecdc4; /* Bright Turquoise */
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle focus shadow */
+}
+
+/* Textarea Specific Styling */
+textarea {
+  resize: none; /* Prevent resizing */
+}
+
+/* Primary button */
+.primary-btn {
+  background-color: #ff9f1c;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.2s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn:hover {
+  background-color: #e68a00;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.primary-btn:hover:enabled {
+  background-color: #e68a00;
+}
+
+/* Consistent Button Styling */
+button {
+  padding: 10px 20px; /* Same padding for all buttons */
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1; /* Ensure equal size */
+  max-width: 150px; /* Optional limit for larger screens */
+}
+
+/* New Password Fields */
+.new-password-fields input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.logout-btn {
+  background-color: #ff6b6b; /* Soft Red */
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%; /* Full-width button for emphasis */
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #e63946; /* Slightly darker red */
+  width: 100%;
+}
+
+
+
+
+

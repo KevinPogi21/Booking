@@ -1,0 +1,1157 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f7fff7;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+    overflow: hidden; /* Prevent layout overflow */
+    background-color: #f7fff7;
+  }
+  
+  
+/* Sidebar */
+.side-nav {
+  width: 200px;
+  background-color: #1A535C;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Hidden Sidebar for Mobile */
+.side-nav.hidden {
+  transform: translateX(-100%);
+}
+
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-nav a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.nav-link.active {
+  background-color: #ff9f1c;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+}
+  
+  /* Tab Content */
+  .tab-content {
+    flex-grow: 1;
+    margin-left: 220px; /* For larger screens */
+    padding: 40px; /* Add padding inside the content area */
+    background-color: #ffffff;
+    transition: margin-left 0.3s ease-in-out;
+    box-sizing: border-box;
+    width: calc(100% - 250px); /* Ensure proper alignment with sidebar */
+    max-width: 100%; /* Prevent overflow beyond the viewport */
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  /* Overview Section */
+  .overview {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .overview-card {
+    background-color: #e0f7f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+  }
+  
+  .tour-status {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .status-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4ecdc4;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .status-btn:hover {
+    background-color: #3bb5a1;
+  }
+
+
+/* Bookings Container */
+.bookings-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Bookings Tabs */
+.bookings-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-tab-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.booking-tab-btn.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #4ecdc4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Bookings Content */
+.bookings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Booking Category */
+.booking-category {
+  margin-bottom: 15px;
+}
+
+.booking-category h4 {
+  margin-bottom: 10px;
+  color: #1A535C;
+  font-weight: bold;
+}
+
+/* Booking Cards */
+.booking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f7fff7;
+
+}
+
+/* Booking Info */
+.booking-info {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.details-btn {
+  background-color: #ff9f1c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.details-btn:hover {
+  background-color: #e68a00;
+}
+
+
+
+
+
+/* Centering Account Header */
+.account-header {
+  text-align: Left;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd; /* Add a subtle horizontal line */
+  padding-bottom: 5px;
+}
+
+/* Profile Picture Styling */
+.profile-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto; /* Center align */
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #4ecdc4;
+}
+
+/* Account Section Styling */
+.account-section {
+  margin: 20px 0;
+}
+
+
+
+.form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px 20px;
+}
+
+.form {
+  display: contents;
+}
+
+
+/* Form Styling */
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Prevent layout overflow */
+}
+
+.input-group label {
+  display: flex;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #2b2d42;
+  font-weight: bold;
+  text-align: left;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.input-group input:focus {
+  border-color: #4ecdc4; /* Bright Turquoise border on focus */
+  background-color: #ffffff; /* White background on focus */
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on focus */
+}
+
+
+/* Button Styling */
+.primary-btn {
+  background-color: #ff9f1c;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* Full width for mobile screens */
+  max-width: 300px;
+  margin: 10px auto;
+}
+
+.primary-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.primary-btn:hover:enabled {
+  background-color: #e68a00;
+}
+
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* Hide Upload Input */
+#upload-pic {
+  display: none;
+}
+
+
+/* Buttons */
+.edit-btn, .save-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #ff9f1c;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #e68a00;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+/* Cropper Modal Styling */
+#cropper-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh; /* Prevent the modal from being too tall */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Modal Content */
+#cropper-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%; /* Ensure it fits inside the modal */
+  height: 100%; /* Prevent overflow */
+  overflow: hidden;
+}
+
+#cropper-container {
+  width: 100%; /* Ensure the cropper takes full width */
+  max-height: 300px; /* Constrain height */
+  overflow: hidden;
+}
+
+/* Show Modal */
+#cropper-modal.show {
+  display: block;
+}
+
+#cropper-modal.hidden {
+  display: none;
+}
+
+/* General Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 80%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.modal.show {
+  display: block;
+}
+
+
+
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+}
+
+/* Title and Subtitle */
+.modal-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1A535C;
+}
+
+.modal-subtitle {
+  font-size: 16px;
+  color: #4ecdc4;
+  margin-bottom: 30px;
+}
+
+/* Input Container */
+.input-container {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #2b2d42;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #4ecdc4;
+  outline: none;
+}
+
+/* Buttons */
+.primary-btn {
+  background-color: #ff9f1c;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: #e68a00;
+}
+
+.secondary-btn {
+  background-color: #dddddd;
+  color: #333333;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.secondary-btn:hover {
+  background-color: #cccccc;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #4ecdc4;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #2b2d42;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .modal {
+    padding: 20px;
+    max-width: 95%;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+  }
+}
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.modal-overlay.show {
+  display: block;
+}
+
+.modal-overlay.side-nav.hidden{
+  display: none;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.package-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.package-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.package-card h4 {
+  margin: 10px 0;
+}
+
+.package-card p {
+  margin: 5px 0;
+}
+
+
+.form-layout {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px 20px;
+}
+
+.form-section {
+  display: contents;
+}
+
+
+input[type="text"],
+input[type="file"],
+textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4ecdc4;
+  outline: none;
+}
+
+textarea {
+  resize: none; /* Disable resizing */
+  overflow-y: auto; /* Scrollable */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #4ecdc4;
+  outline: none;
+}
+
+
+.inclusion-exclusion div {
+  display: flex;
+  flex-direction: column;
+}
+
+.editable-list {
+  list-style: none;
+  padding: 0;
+}
+
+.editable-list li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.editable-item {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #d93636;
+}
+
+.secondary-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.secondary-btn:hover {
+  background-color: #e0e0e0;
+}
+
+
+
+
+/* Modal Header */
+.modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b2d42;
+  font-size: 24px;
+  border-bottom: 2px solid #4ecdc4;
+  padding-bottom: 10px;
+}
+
+/* Status Box */
+.status-box {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.status-circle {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #4ecdc4;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Section Styling */
+.container-section {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Ensure full width for consistency */
+}
+
+.container-section.expanded {
+  padding: 20px;
+}
+
+/* Container Headers */
+.container-header {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2b2d42;
+  border-bottom: 2px solid #4ecdc4;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Section Headers */
+.subsection-title {
+  font-size: 16px;
+  color: #2b2d42;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.subsection-title::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 100%;
+  background-color: #4ecdc4;
+  position: absolute;
+  left: -15px;
+}
+
+/* Notes Box */
+.notes-box {
+  background-color: #eaf7f7;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border-left: 5px solid #4ecdc4;
+}
+
+/* General Information Styling */
+.info-item {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #2b2d42;
+}
+
+/* Timeline Styling */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.timeline li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #4ecdc4;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.timeline-content {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 6px;
+  flex-grow: 1;
+}
+
+/* Checklist Styling */
+.checklist {
+  padding-left: 0;
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.checkmark {
+  color: #4ecdc4;
+  margin-right: 8px;
+}
+
+.crossmark {
+  color: #ff4b4b;
+  margin-right: 8px;
+}
+
+
+/* Page Title */
+.page-title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #2b2d42;
+}
+
+/* Tour Guide List Container */
+.tour-guide-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Tour Guide Card Styling */
+.tour-guide-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.tour-guide-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Profile Picture Styling */
+.profile-picture {
+  width: 100%;
+  height: 180px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Guide Info Styling */
+.guide-info {
+  text-align: center;
+  width: 100%;
+}
+
+.guide-name {
+  font-size: 16px;
+  color: #2b2d42;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-size: 14px;
+  color: #4ecdc4;
+  margin-bottom: 6px;
+}
+
+.ratings {
+  font-size: 12px;
+  color: #ff9f1c;
+  margin-bottom: 6px;
+}
+
+.status {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.status.active {
+  color: #4ecdc4;
+}
+
+.status.inactive {
+  color: #e63946;
+}
+
+/* View Button */
+.view-btn {
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+  width: 100%;
+  text-align: center;
+}
+
+.view-btn:hover {
+  background-color: #38bfb0;
+}
+
+
+
+
+/* PACKAGES */
+#tour-packages {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: none;
+}
+
+#tour-packages h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+/* Package cards container */
+.package-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* =======================
+ Card Details Styles
+======================= */
+.card-details {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  z-index: 1; /* Ensure text is above the gradient */
+}
+
+.title-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating {
+  margin-left: 10px; /* Space between title and rating */
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px; /* Adjust size as needed */
+  color: white; /* Heart color */
+}
+
+
+
+.card-details {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  z-index: 1; /* Ensure text is above the gradient */
+}
+
+.title-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating {
+  margin-left: 10px; /* Space between title and rating */
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px; /* Adjust size as needed */
+  color: white; /* Heart color */
+}
+
+.card {
+  position: relative;
+  width: 300px; /* Adjust as needed */
+  height: 372px; /* Adjust as needed */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #06294e;
+  box-shadow: 0 0 20px rgb(255, 174, 6);
+}
+
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+  z-index: 1; /* Ensure it's above the image but below the text */
+}
+
+/* Overlay for the button */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 83, 92, 0.9); /* Semi-transparent overlay color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease; /* Smooth transition */
+  z-index: 2; /* Ensure it's above everything else */
+}
+
+/* Show overlay on hover */
+.card:hover .card-overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* View Package button */
+.view-package {
+  background: #ff9f1c; /* Button color */
+  color: #101720;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Change background on hover */
+}
+
+
+/* Optional: Add hover effect to button */
+.card-overlay:hover .view-package {
+  background-color: #ff7f00; /* Darker shade on hover */
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.tour-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  z-index: 20;
+  display: none;
+}
+
+.tour-modal.show {
+  display: block;
+}
+
+
+
+/* Modal Content */
+.tour-modal-content {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for content area */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for content */
+  max-height: 70vh; /* Limit the max height to 70% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+}

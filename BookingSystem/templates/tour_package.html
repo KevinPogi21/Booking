@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Tour_Package.css') }}">
+
+</head>
+<body>
+            <!-- Header Section -->
+                <header class="header">
+                    <a href="home.html" class="logo">
+                        <span style="color: #ff9f1c; font-weight: 800;">Pinoy</span>
+                        <span style="font-weight: 800;">Gabay.</span>
+                    </a>
+                    <nav class="navbar">
+                        <a href="home.html">Home</a>
+                        <a href="#">Log In</a>
+                        <a href="#">Sign Up</a>
+                    </nav>
+                </header>
+
+
+                    <section id="list">
+                        <h1>List of <span style="color: #ff9f1c">Tour Packages</span></h1>
+                        <div class="package-container">
+                            <div class="card">
+                                <div class="card-content">
+                                    <img src="Image/D1.jfif" alt="Image" class="card-image">
+                                    <div class="gradient-overlay"></div>
+                                    <div class="card-details">
+                                        <div class="title-rating">
+                                            <h3>Cave Exploring</h3>
+                                            <div class="rating">
+                                                <span style="padding-right: 20px;">4.7</span>
+                                            </div>
+                                        </div>
+                                        <p>Explore the enchanted cave of Bolinao.</p>
+                                    </div>
+                                    <span class="heart">❤️</span>
+                                </div>
+                                <div class="card-overlay">
+                                    <button class="view-package" id="view-package-btn">View Package</button>
+                                </div>
+                            </div>  
+                     
+
+                        
+                            <div class="card">
+                                <div class="card-content">
+                                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                                    <div class="gradient-overlay"></div>
+                                    <div class="card-details">
+                                        <div class="title-rating">
+                                            <h3>Patar Beach</h3>
+                                            <div class="rating">
+                                                <span style="padding-right: 20px;">4.7</span>
+                                            </div>
+                                        </div>
+                                        <p>Relax on the beautiful shores of Patar Beach.</p>
+                                    </div>
+                                    <span class="heart">❤️</span>
+                                </div>
+                                <div class="card-overlay">
+                                    <button class="view-package" id="view-package-btn">View Package</button>
+                                </div>
+                            </div>  
+                    
+
+                        
+                            <div class="card">
+                                <div class="card-content">
+                                    <img src="Image/D3.jfif" alt="Image" class="card-image">
+                                    <div class="gradient-overlay"></div>
+                                    <div class="card-details">
+                                        <div class="title-rating">
+                                            <h3>City</h3>
+                                            <div class="rating">
+                                                <span style="padding-right: 20px;">4.7</span>
+                                            </div>
+                                        </div>
+                                        <p>Explore the vibrant city life and heritage spots.</p>
+                                    </div>
+                                    <span class="heart">❤️</span>
+                                </div>
+                                <div class="card-overlay">
+                                    <button class="view-package" id="view-package-btn">View Package</button>
+                                </div>
+                            </div>  
+                 
+
+                        
+                            <div class="card">
+                                <div class="card-content">
+                                    <img src="Image/D3.jfif" alt="Image" class="card-image">
+                                    <div class="gradient-overlay"></div>
+                                    <div class="card-details">
+                                        <div class="title-rating">
+                                            <h3>Falls</h3>
+                                            <div class="rating">
+                                                <span style="padding-right: 20px;">4.7</span>
+                                            </div>
+                                        </div>
+                                        <p>Discover the stunning waterfalls of Bolinao.</p>
+                                    </div>
+                                    <span class="heart">❤️</span>
+                                </div>
+                                <div class="card-overlay">
+                                    <button class="view-package" id="view-package-btn">View Package</button>
+                                </div>
+                            </div>  
+                        
+
+                       
+                            <div class="card">
+                                <div class="card-content">
+                                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                                    <div class="gradient-overlay"></div>
+                                    <div class="card-details">
+                                        <div class="title-rating">
+                                            <h3>City</h3>
+                                            <div class="rating">
+                                                <span style="padding-right: 20px;">4.7</span>
+                                            </div>
+                                        </div>
+                                        <p>Explore the vibrant city life and heritage spots.</p>
+                                    </div>
+                                    <span class="heart">❤️</span>
+                                </div>
+<div class="card-overlay">
+    <button class="view-package" id="view-package-btn">View Package</button>
+</div>
+                            </div>  
+                    
+<!-- Tour Package Card -->
+<div class="card">
+    <div class="card-content">
+        <img src="Image/D1.jfif" alt="Image" class="card-image">
+        <div class="gradient-overlay"></div>
+        <div class="card-details">
+            <div class="title-rating">
+                <h3>Cave Exploring</h3>
+                <div class="rating">
+                    <span style="padding-right: 20px;">4.7</span>
+                </div>
+            </div>
+            <p>Explore the enchanted cave of Bolinao.</p>
+        </div>
+        <span class="heart">❤️</span>
+    </div>
+<!-- Button to Trigger Modal -->
+<div class="card-overlay">
+    <button class="view-package" id="view-package-btn">View Package</button>
+</div>
+    </div>
+</div>
+
+<!-- Modal Overlay -->
+<div id="modal-overlay" class="hidden"></div>
+
+<!-- Tour Details Modal -->
+<div id="tour-package-modal" class="tour-modal hidden">
+    <div class="tour-modal-content">
+        <div class="modal-header">
+            <img src="Image/BATOG.jpg" alt="Tour Image" class="modal-header-image">
+            <div class="header-text-overlay">
+                <h3 class="package-title">Patar Beach Day</h3>
+                <p class="location"><span class="location-icon">&#x1F4CD;</span> Patar Beach, Bolinao</p>
+            </div>
+            <span id="close-modal" class="close-btn">&times;</span>
+        </div>
+        <p class="description">Relax on the beautiful shores of Patar Beach with custom activities.</p>
+        <div class="modal-section">
+            <h4>Estimated Price</h4>
+            <ul class="price-list"><li>Entrance fee: $5</li><li>Cabana rental: $20</li></ul>
+        </div>
+        <div class="modal-section">
+            <h4>Inclusions</h4>
+            <ul class="inclusions-list"><li>&#10003; Beach chair</li><li>&#10003; Umbrella</li></ul>
+        </div>
+        <div class="modal-section">
+            <h4>Exclusions</h4>
+            <ul class="exclusions-list"><li>&#10007; Food and drinks</li></ul>
+        </div>
+        <div class="modal-section itinerary-section">
+            <h4>Itinerary</h4>
+            <ul class="itinerary-list"><li><strong>Check-in:</strong> Arrival at Patar Beach</li></ul>
+        </div>
+    </div>
+</div>
+    
+        <script src="{{ url_for('static', filename='Tour_Package.js') }}" defer></script>
+
+                </body>
+                </html>

@@ -1,0 +1,434 @@
+/* =======================
+   Global Styles
+======================= */
+body {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0; 
+}
+
+/* =======================
+   Header Styles
+======================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: #1A535C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 100; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.logo {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 33px;
+    margin-right: 20px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    color: #ff9f1c; /* Golden Orange */
+}
+
+/* =======================
+   Gradient Overlay
+======================= */
+.gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%; /* Adjust height of gradient as needed */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+}
+
+/* =======================
+   Card Details Styles
+======================= */
+.card-details {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    z-index: 1; /* Ensure text is above the gradient */
+}
+
+.title-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    margin-left: 10px; /* Space between title and rating */
+}
+
+.heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px; /* Adjust size as needed */
+    color: white; /* Heart color */
+}
+
+/* =======================
+   List Styles
+======================= */
+#list {
+    padding: 6rem 2rem;
+}
+
+#list h1 {
+    align-items: center;
+    text-align: center; /* Center the title text */
+    font-size: 28px; /* Font size for title */
+    color: #101720;
+}
+
+.package-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.card-details {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    z-index: 1; /* Ensure text is above the gradient */
+}
+
+.title-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    margin-left: 10px; /* Space between title and rating */
+}
+
+.heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px; /* Adjust size as needed */
+    color: white; /* Heart color */
+}
+
+.card {
+    position: relative;
+    width: 300px; /* Adjust as needed */
+    height: 372px; /* Adjust as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #06294e;
+    box-shadow: 0 0 20px rgb(255, 174, 6);
+}
+
+
+.card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradient overlay */
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+    z-index: 1; /* Ensure it's above the image but below the text */
+}
+
+/* Overlay for the button */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 83, 92, 0.9); /* Semi-transparent overlay color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition */
+    z-index: 2; /* Ensure it's above everything else */
+}
+
+/* Show overlay on hover */
+.card:hover .card-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* View Package button */
+.view-package {
+    background: #ff9f1c; /* Button color */
+    color: #101720;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Change background on hover */
+}
+
+
+/* Optional: Add hover effect to button */
+.card-overlay:hover .view-package {
+    background-color: #ff7f00; /* Darker shade on hover */
+}
+
+
+.hidden {
+    display: none;
+}
+
+/* Modal Overlay */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay for better focus */
+    z-index: 999;
+    display: none;
+    transition: opacity 0.3s ease; /* Smooth transition for overlay */
+}
+
+/* Tour Modal */
+#tour-package-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Adjusted for a more compact look */
+    background-color: #ffffff;
+    border-radius: 15px; /* Rounded corners for a modern look */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show modal and overlay */
+#modal-overlay:not(.hidden),
+#tour-package-modal:not(.hidden) {
+    display: block;
+}
+
+#tour-package-modal:not(.hidden) {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Modal Header */
+.modal-header {
+    position: relative;
+    height: 200px;
+    background-color: #1A535C; /* Dark teal for header */
+    color: #ffffff;
+}
+
+
+/* Header Image */
+.modal-header-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px; /* Rounded top corners */
+    border-top-right-radius: 15px;
+    filter: brightness(0.8); /* Darker filter to make text more readable */
+}
+
+/* Header Text Overlay */
+.header-text-overlay {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Stronger shadow for contrast */
+}
+
+/* Package Title */
+.package-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    color: #FFDA44; /* Gold color for title */
+}
+
+/* Location */
+.location {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #16A085; /* Vibrant teal for location */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #FF6347; /* Soft coral color for hover effect */
+}
+
+/* Modal Content */
+.tour-modal-content {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for content area */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for content */
+    max-height: 70vh; /* Limit the max height to 70% of the viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+}
+
+/* Description */
+.description {
+    font-size: 1rem;
+    margin: 15px 0;
+    color: #34495E; /* Dark gray text for readability */
+}
+
+/* Modal Sections */
+.modal-section {
+    margin: 20px 0; /* Increased margin for spacing */
+}
+
+.modal-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #2C3E50; /* Darker color for section headings */
+    font-weight: 600;
+}
+
+/* Lists */
+.price-list,
+.inclusions-list,
+.exclusions-list,
+.itinerary-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.price-list li,
+ .inclusions-list li,
+.exclusions-list li,
+.itinerary-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd; /* Light border for separation */
+}
+
+.price-list li:last-child,
+.inclusions-list li:last-child,
+.exclusions-list li:last-child,
+.itinerary-list li:last-child {
+    border-bottom: none; /* Remove border for last item */
+}
+
+/* Price List Specific Styles */
+.price-list li {
+    color: #e74c3c; /* Red color for price items */
+    font-weight: bold;
+}
+
+/* Inclusions and Exclusions List */
+.inclusions-list li,
+.exclusions-list li {
+    color: #27ae60; /* Green for inclusions and red for exclusions */
+}
+
+/* Itinerary Items */
+.itinerary-list li {
+    color: #2980b9; /* Blue for itinerary items */
+}
+
+
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 5%; /* Adjust padding for smaller screens */
+    }
+    
+    .navbar a {
+        font-size: 16px; /* Smaller font size for links */
+        margin-left: 20px; /* Adjust margin */
+        margin-right: 15px; /* Adjust margin */
+    }
+
+    .package-container {
+        padding: 3rem 1rem; /* Adjust padding for small screens */
+    }
+
+    .card {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust height automatically */
+    }
+
+    #title-tab h1 {
+        font-size: 24px; /* Smaller font size for title on mobile */
+    }
+}
+
+/* @media (max-width: 600px) {
+    .modal {
+        width: 95%; 
+    }
+   
+    .modal-header-image {
+        height: 150px; 
+    }
+
+    .package-title {
+        font-size: 1.3rem; 
+    }
+   } */
+    

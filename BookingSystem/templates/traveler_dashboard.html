@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="{{ url_for('main.traveler_dashboard') }}" class="logo">
+                    <span style="color: #ff9f1c; font-weight: 800;">Pinoy</span><span style="font-weight: 800;">Gabay.</span>
+                </a>
+                <div class="navbar-links">
+                  <a href="{{ url_for('main.booking') }}" class="nav-link">My Bookings</a>
+
+                  <div class="notification-container">
+                    <button id="notification-bell" class="notification-bell">
+                      <span class="bell-icon">&#128276;</span>
+                      <span class="notification-count">0</span> <!-- Number of notifications -->
+                    </button>
+                    
+                  <div class="notification-dropdown">
+                      <h3>Notifications</h3>
+                      <ul class="notification-list">
+                        <li class="notification-item">No Notifications</li> <!-- Example empty notification -->
+                      </ul>
+                      <button class="view-all-btn">View all</button>
+                    </div>
+                  </div>  
+                  
+                 <!-- Dark Mode Toggle Icon -->
+                  <div class="icon dark-mode-toggle">
+                    <i class="dark-mode-icon">🌙</i>
+                  </div>
+      
+                  <!-- Profile Icon -->
+                  <div class="profile-container-nav">
+                    <a href="{{ url_for('main.account') }}">
+                        <img class= "profile-icon" id="profile-pic" src="{{ url_for('static', filename='profile_pics/' + current_user.profile_img) }}" alt="Profile Picture">
+                      </a>
+                  </div>
+      
+                </div>
+            </div>
+          </nav>
+          
+      
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-box">
+            <h1>“Experience Bolinao with BATOG: <span style="color: #ff9f1c; font-style: italic;">Bolinao Association of Tour Guides.</span>”</h1>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> Germinal, Bolinao, Pangasinan</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:bolinaotourguides@gmail.com">bolinaotourguides@gmail.com</a> </li>
+                <li><i class="fas fa-phone"></i> 0915 281 9287</li>
+            </ul>
+            <div class="btn-box">
+                <a href="{{ url_for('main.booking') }}">Book Your Guide Now</a>
+                <a href="https://seepangasinan.com/directory/bolinao-association-of-tour-guides-batog/" target="blank">Click to Learn More</a>
+            </div>
+        </div>
+        <img src="{{ url_for('static', filename='BATOG.jpg') }}" alt="BATOG" class="hero-image">
+    </section>
+
+    <hr>
+
+    <!-- Tour Guides Section -->
+    <section class="tour-guide-section">
+        <div class="container-tg">
+            <h2 class="title-bol">
+                Explore Personalized and Experiential Travel in Bolinao with Local Experts from BATOG
+            </h2>
+            <div class="bol-image">
+                <img src="{{ url_for('static', filename='qttg.avif') }}" alt="Inviting Bolinao Landscape">
+            </div>
+            <button class="tg-button">See Tour Guides</button>
+        </div>
+    </section>
+
+    <!-- Tour Packages Section -->
+    <section id="tour-packages">
+        <h2>Available Tour <span style="color: #ff9f1c">Packages/Itineraries</span></h2>
+        <div class="package-container">
+            <div class="card">
+                <div class="card-content">
+                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                    <div class="gradient-overlay"></div>
+                    <div class="card-details">
+                        <div class="title-rating">
+                            <h3>Patar Beach</h3>
+                            <div class="rating">
+                                <span style="padding-right: 20px;">4.7</span>
+                            </div>
+                        </div>
+                        <p>Relax on the beautiful shores of Patar Beach.</p>
+                    </div>
+                    <span class="heart">❤️</span>
+                </div>
+                <div class="card-overlay">
+                    <button class="view-package" id="view-package-btn">View Package</button>
+                </div>
+            </div>  
+    
+            <div class="card">
+                <div class="card-content">
+                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                    <div class="gradient-overlay"></div>
+                    <div class="card-details">
+                        <div class="title-rating">
+                            <h3>Patar Beach</h3>
+                            <div class="rating">
+                                <span style="padding-right: 20px;">4.7</span>
+                            </div>
+                        </div>
+                        <p>Relax on the beautiful shores of Patar Beach.</p>
+                    </div>
+                    <span class="heart">❤️</span>
+                </div>
+                <div class="card-overlay">
+                    <button class="view-package" id="view-package-btn">View Package</button>
+                </div>
+            </div>  
+    
+            <div class="card">
+                <div class="card-content">
+                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                    <div class="gradient-overlay"></div>
+                    <div class="card-details">
+                        <div class="title-rating">
+                            <h3>Patar Beach</h3>
+                            <div class="rating">
+                                <span style="padding-right: 20px;">4.7</span>
+                            </div>
+                        </div>
+                        <p>Relax on the beautiful shores of Patar Beach.</p>
+                    </div>
+                    <span class="heart">❤️</span>
+                </div>
+                <div class="card-overlay">
+                    <button class="view-package" id="view-package-btn">View Package</button>
+                </div>
+            </div>  
+    
+            <div class="card">
+                <div class="card-content">
+                    <img src="Image/D2.jfif" alt="Image" class="card-image">
+                    <div class="gradient-overlay"></div>
+                    <div class="card-details">
+                        <div class="title-rating">
+                            <h3>Patar Beach</h3>
+                            <div class="rating">
+                                <span style="padding-right: 20px;">4.7</span>
+                            </div>
+                        </div>
+                        <p>Relax on the beautiful shores of Patar Beach.</p>
+                    </div>
+                    <span class="heart">❤️</span>
+                </div>
+                <div class="card-overlay">
+                    <button class="view-package" id="view-package-btn">View Package</button>
+                </div>
+            </div>  
+    
+        </div>
+    </section>
+
+    <!-- Popular Places Section -->
+    <section id="popular-places">
+        <hr>
+        <h2><span style="color: #ff9f1c">Popular</span> Destinations to Visit in Bolinao</h2>
+        <div class="popular-places-container">
+            <img src="{{ url_for('static', filename='download.jpeg') }}" alt="PP" class="pp-image">
+            <div class="destination-card">
+                <img src="{{ url_for('static', filename='D1 (1).jfif') }}" alt="Bolinao Beach">
+                <h3>Bolinao Beach</h3>
+                <p>Beautiful beaches and crystal-clear waters.</p>
+            </div>
+            <div class="destination-card">
+                <img src="{{ url_for('static', filename='D2 (1).jfif') }}" alt="Patar Beach">
+                <h3>Patar Beach</h3>
+                <p>Explore the water and stunning landscapes.</p>
+            </div>
+            <div class="destination-card">
+                <img src="{{ url_for('static', filename='D3 (1).jfif') }}" alt="Beach Resort">
+                <h3>Beach Resort</h3>
+                <p>Experience vibrant local culture and cuisine.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Activities Section -->
+    <section id="activities-bolinao">
+        <h2>What to Do in Bolinao</h2>
+        <div class="activities-container">
+            <div class="activity-card">
+                <img src="{{ url_for('static', filename='s&d.webp') }}" alt="Snorkeling">
+                <h3>Snorkeling & Diving</h3>
+                <p>Discover vibrant marine life and coral reefs on a snorkeling adventure.</p>
+            </div>
+            <div class="activity-card">
+                <img src="{{ url_for('static', filename='lighthouse.jpg') }}" alt="Lighthouse Visit">
+                <h3>Visit Cape Bolinao Lighthouse</h3>
+                <p>Enjoy panoramic views and explore the historical Cape Bolinao Lighthouse.</p>
+            </div>
+            <div class="activity-card">
+                <img src="{{ url_for('static', filename='bolinao cuisine.webp') }}" alt="Culinary Experience">
+                <h3>Local Cuisine</h3>
+                <p>Savor the delicious and authentic flavors of Bolinao’s seafood dishes.</p>
+            </div>
+            <div class="activity-card">
+                <img src="{{ url_for('static', filename='nature walks.jpg') }}" alt="Nature Walk">
+                <h3>Nature Walks</h3>
+                <p>Explore breathtaking landscapes, hidden caves, and tranquil tidal pools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tours Section -->
+    <section id="featured">
+        <hr>
+        <h2><span style="color: #ff9f1c;">Featured</span> Tours</h2>
+        <div class="f-container">
+            <div class="f-card">
+                <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Best Experience">
+                <h3>Best Experience</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="f-card">
+                <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Best Summer">
+                <h3>Best Summer</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="f-card">
+                <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Out of Words">
+                <h3>Out of Words</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <img src="{{ url_for('static', filename='download.jpeg') }}" alt="Featured" class="f-image">
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:support@pinoygabay.com">support@pinoygabay.com</a></p>
+                <p>Phone: +63 123 456 7890</p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Newsletter Subscription Section -->
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for updates and offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>CASSANO Grp. 2024. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!--COPY ALL FOR NOTIFICATION BELL AND DARKMODE-->
+<script>
+  
+    document.querySelector('.dark-mode-toggle').addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      document.querySelector('.navbar').classList.toggle('dark-mode');
+      document.querySelector('.profile-icon').classList.toggle('dark-mode');
+    });
+    
+      document.addEventListener("DOMContentLoaded", function() {
+      const notificationBell = document.getElementById("notification-bell");
+      const notificationDropdown = document.querySelector(".notification-dropdown");
+    
+      // Toggle notification dropdown on bell click
+      notificationBell.addEventListener("click", function(event) {
+        notificationDropdown.classList.toggle("active");
+        event.stopPropagation(); // Prevent click from closing immediately
+      });
+    
+      // Close dropdown if clicked outside
+      document.addEventListener("click", function(event) {
+        if (!notificationDropdown.contains(event.target) && !notificationBell.contains(event.target)) {
+          notificationDropdown.classList.remove("active");
+        }
+      });
+    });
+    
+    
+    // Toggle the notification dropdown visibility
+    document.getElementById('notification-bell').addEventListener('click', function() {
+      const dropdown = document.getElementById('notification-dropdown');
+      dropdown.classList.toggle('hidden');
+      dropdown.style.display = dropdown.classList.contains('hidden') ? 'none' : 'block';
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const notificationBell = document.getElementById("notification-bell");
+      const notificationContainer = document.querySelector(".notification-container");
+      const notificationCount = document.querySelector(".notification-count");
+      const notificationList = document.getElementById("notification-list");
+    
+      // Toggle notification dropdown on bell click
+      notificationBell.addEventListener("click", function () {
+        notificationContainer.classList.toggle("active");
+      });
+    
+      // Example function to add notifications
+      function addNotification(message) {
+        const newNotification = document.createElement("li");
+        newNotification.classList.add("notification-item");
+        newNotification.textContent = message;
+        notificationList.appendChild(newNotification);
+    
+        // Update notification count
+        const count = parseInt(notificationCount.textContent);
+        notificationCount.textContent = count + 1;
+    
+        // Remove "No Notifications" message if present
+        const noNotificationMessage = document.querySelector(".notification-item");
+        if (noNotificationMessage && noNotificationMessage.textContent === "No Notifications") {
+          noNotificationMessage.remove();
+        }
+      }
+    
+      // Example: Add a notification on page load (replace or remove in production)
+      addNotification("New booking confirmed!");
+      addNotification("Your tour guide has arrived.");
+    });
+    </script>
+
+    
+</body>
+</html>

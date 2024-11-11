@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password - PinoyGabay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Signup_design.css') }}">
+</head>
+<body>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay"></div>
+
+  <!-- Forgot Password Modal Content -->
+  <div class="modal" id="forgot-password-modal">
+    <div class="form-section">
+      <h1>Forgot Password</h1>
+      <p class="subtitle">Enter your email to reset your password</p>
+
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="input-container">
+          {{ form.email.label(class="form-control-label") }}
+          {% if form.email.error %}
+              {{ form.email(class="form-control is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.email.error %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.email(class="form-control") }}
+          {% endif %}
+        </div>
+        <div class="modal-button-container">
+          <button type="submit" class="primary-btn">Send Verification Email</button>
+          <button class="cancel-btn" onclick="goBack()">Cancel</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "{{ url_for('main.traveler_login') }}"; // Redirect to the login page when Cancel is clicked
+    }
+  </script>
+
+</body>
+</html>

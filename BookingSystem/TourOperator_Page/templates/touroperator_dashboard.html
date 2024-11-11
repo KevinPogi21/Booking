@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Operator Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='TourOperator.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="{{ url_for('static', filename='TourOperator.js') }}" defer ></script>
+
+</head>
+<body>
+    <!-- Tour Operator Dashboard -->
+<div class="dashboard-container">
+    <!-- Sidebar Navigation -->
+    <nav class="side-nav">
+      <h2>Operator Dashboard</h2>
+      <ul>
+        <li><a href="#" class="nav-link active" data-tab="tour-management">Tour Management</a></li>
+        <li><a href="#" class="nav-link" data-tab="manage-municipality">Manage Municipality</a></li>
+        <li><a href="#" class="nav-link" data-tab="tour-guide-management">Tour Guide Management</a></li>
+        <li><a href="#" class="nav-link" data-tab="account">Account</a></li>
+        <li><a href="{{ url_for('main.logout') }}"  class="tab-link">Log Out</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <!-- Tour Management Tab -->
+      <div class="tab-pane active" id="tour-management">
+        <h2>Tour Management Overview</h2>
+        <div class="overview">
+          <div class="overview-card">
+            <h3>Active Guides</h3>
+            <p>10</p>
+          </div>
+          <div class="overview-card">
+            <h3>Ongoing Tours</h3>
+            <p>5</p>
+          </div>
+          <div class="overview-card">
+            <h3>Pending Bookings</h3>
+            <p>8</p>
+          </div>
+          <div class="overview-card">
+            <h3>Completed Tours</h3>
+            <p>15</p>
+          </div>
+        </div>
+  
+<!-- Bookings Tabs Container -->
+<div class="bookings-container">
+    <div class="bookings-tabs">
+      <button class="booking-tab-btn active" data-status="all">All (5)</button>
+      <button class="booking-tab-btn" data-status="upcoming">Upcoming (2)</button>
+      <button class="booking-tab-btn" data-status="ongoing">Ongoing (1)</button>
+      <button class="booking-tab-btn" data-status="completed">Completed (1)</button>
+      <button class="booking-tab-btn" data-status="cancelled">Cancelled (1)</button>
+    </div>
+  
+    <!-- Bookings Content -->
+    <div class="bookings-content">
+      <!-- Category Label: Upcoming -->
+      <div class="booking-category" data-status="upcoming">
+        <h4>Upcoming</h4>
+        <div class="booking-card">
+          <div class="booking-info">
+            <span class="booking-date">Oct 30, 2024</span>
+            <span class="tour-package">Island Hopping Tour</span>
+            <span class="traveler-name">Traveler: Jane Doe</span>
+            <span class="tour-guide-name">Guide: Peter Park</span>
+          </div>
+          <button class="details-btn" onclick="openBookingDetails('Booking #123')">View Details</button>
+        </div>
+      </div>
+  
+      <!-- Category Label: Ongoing -->
+      <div class="booking-category" data-status="ongoing">
+        <h4>Ongoing</h4>
+        <div class="booking-card">
+          <div class="booking-info">
+            <span class="booking-date">Nov 1, 2024</span>
+            <span class="tour-package">City Tour</span>
+            <span class="traveler-name">Traveler: John Smith</span>
+            <span class="tour-guide-name">Guide: Amy Brown</span>
+          </div>
+          <button class="details-btn" onclick="openBookingDetails('Booking #124')">View Details</button>
+        </div>
+      </div>
+  
+      <!-- Category Label: Completed -->
+      <div class="booking-category" data-status="completed">
+        <h4>Completed</h4>
+        <div class="booking-card">
+          <div class="booking-info">
+            <span class="booking-date">Oct 25, 2024</span>
+            <span class="tour-package">Mountain Trekking</span>
+            <span class="traveler-name">Traveler: Mark Lee</span>
+            <span class="tour-guide-name">Guide: Sam Lee</span>
+          </div>
+          <button class="details-btn" onclick="openBookingDetails('Booking #125')">View Details</button>
+        </div>
+      </div>
+  
+      <!-- Category Label: Cancelled -->
+      <div class="booking-category" data-status="cancelled">
+        <h4>Cancelled</h4>
+        <div class="booking-card">
+          <div class="booking-info">
+            <span class="booking-date">Oct 22, 2024</span>
+            <span class="tour-package">Food Tour</span>
+            <span class="traveler-name">Traveler: Amy Cooper</span>
+            <span class="tour-guide-name">Guide: Peter Park</span>
+          </div>
+          <button class="details-btn" onclick="openBookingDetails('Booking #126')">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Booking Details Modal -->
+  <div id="booking-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Booking Details</h3>
+      <p id="booking-info">Here will be the booking details...</p>
+      <button class="primary-btn" id="close-booking-modal">Close</button>
+    </div>
+  </div>
+  
+      </div>
+  
+      <!-- Manage Municipality Tab -->
+        <div class="tab-pane" id="manage-municipality">
+          <h2>Manage Municipality</h2>
+          <!-- Button to Open Form Modal -->
+                    <!-- Button to Open Form Modal -->
+                    <button id="open-form-btn" class="primary-btn">Add New Tour Package</button>
+
+                    <div id="form-modal" class="modal hidden">
+                      <div class="modal-content">
+                        <h3>Create/Edit Tour Package</h3>
+                    
+                        <!-- Begin Flask-WTForms form -->
+                        <form id="tour-package-form" class="form-layout" method="POST" enctype="multipart/form-data" action="{{ url_for('touroperator.create_tour_package') }}">
+                          {{ package_form.hidden_tag() }}
+                          
+                          <div class="form-section">
+                            <label for="package-name">Tour Package Name</label>
+                            <input type="text" 
+                                   name="{{ package_form.name.name }}"  
+                                   id="package-name" 
+                                   placeholder="Enter package name" 
+                                   class="editable-item" />
+                          </div>
+                          
+                          <div class="form-section">
+                            <label for="description">Description</label>
+                            <textarea 
+                                   name="{{ package_form.description.name }}" 
+                                   id="description" 
+                                   placeholder="Enter package description" 
+                                   class="editable-item"></textarea>
+                          </div>
+                          
+                          
+                          <div class="form-section">
+                            <label for="image-upload">Image Upload</label>
+                            <input type="file" 
+                                   name="{{ package_form.package_img.name }}" 
+                                   id="image-upload" 
+                                   class="editable-item" />
+                          </div>
+
+                          <div class="form-section inclusion-exclusion">
+                            <label for="estimated-price">Estimated Price</label>
+                            <div>
+                              <ul id="estimated-price-list" class="editable-list">
+                                <li>
+                                  <input type="text" name="estimated_price_description[]" placeholder="Description" class="editable-item" />
+                                  <input type="text" name="estimated_price_value[]" placeholder="Price" class="editable-item" />
+                                  <button type="button" class="remove-btn">Remove</button>
+                                </li>
+                              </ul>
+                              <button type="button" id="add-estimated-price-btn" class="secondary-btn">Add Estimated Price</button>
+                            </div>
+                          </div>
+                          
+                          <div class="form-section inclusion-exclusion">
+                            <label for="inclusions">Inclusions</label>
+                            <div>
+                              <ul id="inclusions-list" class="editable-list">
+                                <li>
+                                  <input type="text" name="inclusions[]" placeholder="Add inclusion" class="editable-item" />
+                                  <button type="button" class="remove-btn">Remove</button>
+                                </li>
+                              </ul>
+                              <button type="button" id="add-inclusion-btn" class="secondary-btn">Add Inclusion</button>
+                            </div>
+                          </div>
+                          
+                          <div class="form-section inclusion-exclusion">
+                            <label for="exclusions">Exclusions</label>
+                            <div>
+                              <ul id="exclusions-list" class="editable-list">
+                                <li>
+                                  <input type="text" name="exclusions[]" placeholder="Add exclusion" class="editable-item" />
+                                  <button type="button" class="remove-btn">Remove</button>
+                                </li>
+                              </ul>
+                              <button type="button" id="add-exclusion-btn" class="secondary-btn">Add Exclusion</button>
+                            </div>
+                          </div>
+                          
+                          <div class="form-section inclusion-exclusion">
+                            <label for="itinerary">Itinerary</label>
+                            <div>
+                              <ul id="itinerary-list" class="editable-list">
+                                <li>
+                                  <input type="text" name="itinerary_title[]" placeholder="Title" class="editable-item" />
+                                  <input type="text" name="itinerary_subtitle[]" placeholder="Subtitle" class="editable-item" />
+                                  <button type="button" class="remove-btn">Remove</button>
+                                </li>
+                              </ul>
+                              <button type="button" id="add-itinerary-btn" class="secondary-btn">Add Itinerary</button>
+                            </div>
+                          </div>                          
+                          
+                      
+                          <div class="button-container">
+                            <button type="submit" name="submit_tour_package" class="primary-btn">Create</button>
+                            <button type="button" id="close-form-modal" class="secondary-btn">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    
+                    <section id="tour-packages">
+                      <h2><span style="color: #ff9f1c">Available Tour Packages/Itineraries</span></h2>
+                      <div class="package-container">
+                        {% for package in packages %}
+                          <div class="card">
+                            <div class="card-content">
+                              <img src="{{ url_for('static', filename='uploads/' + package.package_img) if package.package_img else url_for('static', filename='default.jpg') }}" alt="Tour Image" class="modal-header-image">
+                              <div class="gradient-overlay"></div>
+                              <div class="card-details">
+                                <div class="title-rating">
+                                  <h3>{{ package.name }}</h3>
+                                  <div class="rating">
+                                    <span style="padding-right: 20px;"></span>
+                                  </div>
+                                </div>
+                                <p>{{ package.description }}</p>
+                              </div>
+                            </div>
+                            <div class="card-overlay">
+                              <button class="view-package" data-package-id="{{ package.id }}">View Package</button>
+                            </div>
+                          </div>
+                        {% else %}
+                          <p>No Package Created.</p>
+                        {% endfor %}
+                      </div>
+                    </section>
+
+
+
+                      <!-- Modal Overlay -->
+                      <div id="modal-overlay" class="modal-overlay hidden"></div>
+
+
+                      <!-- Tour Details Modal -->
+                      <div id="tour-details-modal" class="tour-modal hidden">
+                        <div class="tour-modal-content">
+                          
+                          <!-- Header with Image, Title, Location, and Close Button -->
+                          <div class="modal-header">
+                            <img src="Image/bolinao.jpg" alt="Tour Image" class="modal-header-image">
+                            <div class="header-text-overlay">
+                              <h3 class="package-title">Island Hopping Adventure</h3>
+                              <p class="location"><span class="location-icon">&#x1F4CD;</span> Bolinao, Pangasinan</p>
+                            </div>
+                            <span id="close-modal" class="close-btn">&times;</span>
+                          </div>
+
+                          <!-- Description -->
+                          <p class="description">Experience the beautiful islands with guided tours, beach activities, and cultural insights.</p>
+                          <!-- Estimated Price Section -->
+                          <div class="modal-section">
+                            <h4>Estimated Price</h4>
+                            <ul class="price-list">
+                              <li>Entrance fee: $10</li>
+                              <li>Taxi: $30</li>
+                            </ul>
+                          </div>
+
+                          <!-- Inclusions Section -->
+                          <div class="modal-section">
+                            <h4>Inclusions</h4>
+                            <ul class="inclusions-list">
+                              <li><span class="checkmark">&#10003;</span> Guided tours</li>
+                              <li><span class="checkmark">&#10003;</span> Meals (breakfast and lunch)</li>
+                              <li><span class="checkmark">&#10003;</span> Snorkeling gear</li>
+                            </ul>
+                          </div>
+
+                          <!-- Exclusions Section -->
+                          <div class="modal-section">
+                            <h4>Exclusions</h4>
+                            <ul class="exclusions-list">
+                              <li><span class="crossmark">&#10007;</span> Dinner</li>
+                              <li><span class="crossmark">&#10007;</span> Personal expenses</li>
+                              <li><span class="crossmark">&#10007;</span> Travel insurance</li>
+                            </ul>
+                          </div>
+
+                          <!-- Itinerary Section -->
+                          <div class="modal-section itinerary-section">
+                            <h4>Itinerary</h4>
+                            <ul class="itinerary-list">
+                              <li>
+                                <span class="timeline-dot"></span>
+                                <div class="timeline-content">
+                                  <strong>Meeting Point:</strong>
+                                  <p>Down the stairs of BTS Saphan Taksin station exit 3 - Bangkok</p>
+                                </div>
+                              </li>
+                              <li>
+                                <span class="timeline-dot"></span>
+                                <div class="timeline-content">
+                                  <strong>Food & Culture:</strong>
+                                  <p>Discover why street food is so relevant for locals and their culture.</p>
+                                </div>
+                              </li>
+                              <li>
+                                <span class="timeline-dot"></span>
+                                <div class="timeline-content">
+                                  <strong>Authentic Tastings:</strong>
+                                  <p>Enjoy sweet sticky rice, roti, and other tastings that showcase the Thai food tradition.</p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+
+                              <!-- Buttons for Edit, Remove, and Close -->
+                          <div class="modal-actions">
+                            <button id="edit-package-btn" class="primary-btn">Edit</button>
+                            <button id="delete-package-btn" class="danger-btn">Remove</button>
+                            <button id="close-modal-btn" class="secondary-btn">Close</button>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+  
+          <!-- Tour Guide Management Tab -->
+          <div class="tab-pane" id="tour-guide-management">
+            <h2>Tour Guide Management</h2>
+          <!-- Add Tour Guide Button -->
+          <button class="primary-btn" id="add-tour-guide-btn">Add Tour Guide</button>
+
+          <!-- Add Tour Guide Modal -->
+          <div class="modal hidden" id="tour-guide-modal">
+            <div class="modal-content">
+              <button class="close-btn" id="close-tour-guide-modal">&times;</button>
+              <h1 class="modal-title">Create Tour Guide Account</h1>
+              <p class="modal-subtitle">Fill in the required details to create a new tour guide account.</p>
+
+              <form method="POST" id="tour-guide-form" action="{{ url_for('touroperator.create_tourguide') }}">
+                {{ guide_form.hidden_tag() }}  <!-- CSRF token if using Flask-WTF -->
+            
+                <div class="input-container">
+                    <label for="fname">First Name</label>
+                    {{ guide_form.fname(class="input", placeholder="Enter Guide First Name") }}
+                    {% if guide_form.fname.errors %}
+                        <span class="error">{{ guide_form.fname.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="input-container">
+                    <label for="lname">Last Name</label>
+                    {{ guide_form.lname(class="input", placeholder="Enter Guide Last Name") }}
+                    {% if guide_form.lname.errors %}
+                        <span class="error">{{ guide_form.lname.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    {{ guide_form.email(class="input", placeholder="Enter Guide Email") }}
+                    {% if guide_form.email.errors %}
+                        <span class="error">{{ guide_form.email.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="input-container">
+                    <label for="contact_number">Contact Number</label>
+                    {{ guide_form.contact_number(class="input", placeholder="Enter Contact Number") }}
+                    {% if guide_form.contact_number.errors %}
+                        <span class="error">{{ guide_form.contact_number.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    {{ guide_form.password(class="input", placeholder="Enter Password") }}
+                    {% if guide_form.password.errors %}
+                        <span class="error">{{ guide_form.password.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="input-container">
+                    <label for="confirm_password">Confirm Password</label>
+                    {{ guide_form.confirm_password(class="input", placeholder="Confirm Password") }}
+                    {% if guide_form.confirm_password.errors %}
+                        <span class="error">{{ guide_form.confirm_password.errors[0] }}</span>
+                    {% endif %}
+                </div>
+            
+                <div class="button-container">
+                    <button type="submit"  name="submit_tour_guide" class="primary-btn">Create Account</button>
+                </div>
+            </form>
+            
+            
+
+            </div>
+          </div>
+
+          <div class="container">
+            <h1 class="page-title">My Tour Guides</h1>
+            <div class="tour-guide-list">
+                {% for guide in tour_guides %}
+                    <div class="tour-guide-card">
+                      <div class="profile-picture">
+                        <img src="Image/doonaaaaa.jpg" alt="Tour Guide Profile Picture">
+                      </div>
+                        <div class="guide-info">
+                            <h3 class="guide-name">{{ guide.user.first_name }} {{ guide.user.last_name }}</h3>
+                            <p class="price">₱1,500 per tour</p>
+                            <div class="ratings">4.5 ★★★★☆</div>
+                            <p class="status active">Status: Active</p>
+                            <button class="view-btn" onclick="redirectToProfile()">View Profile</button>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>No tour guides available.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+            </div>
+
+  
+            <!-- Account Tab -->
+            <div class="tab-pane active" id="account">
+                <div class="account-card">
+                <h2 class="account-header">Account</h2> 
+            
+                <!-- Profile Picture Upload -->
+                <!-- Profile Picture Upload -->
+                <div class="profile-overview">
+                    <img src="Image/traveler.JPG" alt="Profile Picture" class="profile-pic" id="profile-pic" />
+                    <input type="file" id="upload-pic" class="hidden" accept="image/*" />
+                    <button class="primary-btn" id="change-pic-btn">Change Profile Picture</button>
+                    <button class="primary-btn hidden" id="save-pic-btn">Save</button>
+                
+                      <!-- Cropper Modal -->
+                      <div id="cropper-modal" class="modal hidden">
+                        <div class="modal-content">
+                          <h3>Adjust Your Picture</h3>
+                          <div id="cropper-container"></div>
+                          <button class="primary-btn" id="crop-btn">Crop and Save</button>
+                          <button class="primary-btn" id="close-cropper-modal">Close</button>
+                        </div>
+                      </div>
+            
+                <!-- Name Section -->
+                <!-- Name Section -->
+                    <!-- Name Section -->
+                    <div class="input-group">
+                        <label for="name">
+                        Name:
+                        <button class="edit-btn" id="edit-name-btn">&#9998;</button>
+                        <button class="save-btn hidden" id="save-name-btn">&#10003;</button>
+                        </label>
+                        <input type="text" id="name" placeholder="{{ current_user.first_name }}" disabled />
+                    </div>
+
+                    <!-- Municipal Section -->
+                    <div class="input-group">
+                        <label for="municipal">
+                        Municipal:
+                        <button class="edit-btn" id="edit-name-btn">&#9998;</button>
+                        <button class="save-btn hidden" id="save-name-btn">&#10003;</button>
+                        </label>
+                        <input type="text" id="municipal" placeholder="{{ operator.municipal }}" disabled />
+                    </div>
+            
+                <h2>Contact Information</h2>
+
+                <!-- Email Section -->
+                <div class="input-group">
+                  <label for="email">
+                    Email 
+                    <button class="edit-btn" id="edit-email-btn">&#9998;</button>
+                    <button class="save-btn hidden" id="save-email-btn">&#10003;</button>
+                  </label>
+                  <input type="email" id="email" placeholder="{{ current_user.email }}" disabled />
+                </div>
+
+                <!-- Contact Number Section -->
+                <div class="input-group">
+                  <label for="contact-number">
+                    Contact Number 
+                    <button class="edit-btn" id="edit-contact-btn">&#9998;</button>
+                    <button class="save-btn hidden" id="save-contact-btn">&#10003;</button>
+                  </label>
+                  <input type="text" id="contact-number" placeholder="{{ operator.contact_num }}" disabled />
+                </div>
+
+                <!-- Password Section -->
+                <div class="input-group">
+                  <label for="current-password">
+                    Current Password
+                    <button class="edit-btn" id="edit-password-btn">&#9998;</button>
+                    <button class="save-btn hidden" id="save-password-btn">&#10003;</button>
+                  </label>
+                  <input type="password" id="current-password" placeholder="••••••••••" disabled />
+                </div>
+
+                <!-- New Password Fields (Initially Hidden) -->
+                <div class="input-group hidden" id="reenter-password-group">
+                  <label for="reenter-password">Re-enter Current Password</label>
+                  <input type="password" id="reenter-password" placeholder="Re-enter current password" />
+                </div>
+
+                <div class="input-group hidden" id="new-password-group">
+                  <label for="new-password">New Password</label>
+                  <input type="password" id="new-password" placeholder="Enter new password" />
+                </div>
+
+                <div class="input-group hidden" id="confirm-password-group">
+                  <label for="confirm-password">Confirm New Password</label>
+                  <input type="password" id="confirm-password" placeholder="Confirm new password" />
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <!-- Logout Confirmation Modal -->
+  <div id="logout-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Confirm Logout</h3>
+      <button class="primary-btn" id="confirm-logout">Logout</button>
+      <button class="primary-btn" id="cancel-logout">Cancel</button>
+    </div>
+  </div>
+    </div>
+  
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password - PinoyGabay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Signup_design.css') }}">
+</head>
+<body>
+
+  <!-- Reset Password Modal -->
+  <div class="modal" id="reset-password-modal">
+    <div class="form-section">
+      <h1>Reset Password</h1>
+      <p class="subtitle">Enter your new password.</p>
+      <form method="POST" id="reset-password-form">
+        {{ form.hidden_tag() }}
+        <div class="input-container">
+          <label for="new-password">New Password</label>
+
+          {% if form.password.error %}
+              {{ form.password(class="form-control is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.password.error %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.password(class="form-control") }}
+          {% endif %}
+        </div>
+        <div class="input-container">
+          <label for="confirm-new-password">Confirm Password</label>
+ 
+          {% if form.confirm_password.error %}
+              {{ form.confirm_password(class="form-control is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.confirm_password.error %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.confirm_password(class="form-control") }}
+          {% endif %}
+        </div>
+        <div class="button-container">
+          <button type="submit" class="primary-btn">Reset Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

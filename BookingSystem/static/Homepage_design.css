@@ -1,0 +1,82 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: #1A535C;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar-links a {
+    color: white; /* Ensure all links are white */
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: #ff9f1c;
+  }
+  /* Hero Section */
+  .hero {
+    height: 90vh;
+    background-image: url('hero-image.jpg'); /* Replace with a suitable background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 30px;
+  }
+  
+  .hero-btn {
+    background-color: #ff9f1c;
+    color: #f7fff7;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .hero-btn:hover {
+    background-color: #e68a00;
+  }

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - PinoyGabay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Signup_design.css') }}">
+</head>
+<body>
+
+
+{% block content %}
+  <!-- Modal Overlay -->
+    <div class="modal-overlay"></div>
+
+    <!-- Modal Content -->
+    <div class="modal">
+      <div class="form-section">
+        <h1>Create Your Account</h1>
+        <p class="subtitle">Sign up to start your adventure with your local guide</p>
+        
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          
+          <div>
+            <!-- Close Button in the Top-Right Corner -->
+            <button class="close-btn" id="close-modal">&times;</button>
+
+          </div>
+          
+          <div class="input-group">
+            <div class="input-container">
+              <label for="first_name">First Name</label>
+              {% if form.first_name.errors %}
+              {{ form.first_name(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                      {% for error in form.first_name.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.first_name(class="form-control") }}
+              {% endif %}
+            </div>
+
+            <div class="input-container">
+              <label for="last_name">Last Name</label>
+              {% if form.last_name.errors %}
+              {{ form.last_name(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                      {% for error in form.last_name.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.last_name(class="form-control") }}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="nationality">{{ form.nationality.label }}</label>
+            <input 
+                type="text" 
+                id="nationality" 
+                name="nationality" 
+                placeholder="Type to search..." 
+                list="country-options" 
+                autocomplete="off" 
+                class="form-control" 
+                required>
+            
+            <datalist id="country-options">
+                <option value="Philippines"></option>
+                <option value="United States"></option>
+                <option value="Singapore"></option>
+                <option value="Japan"></option>
+                <option value="Australia"></option>
+            </datalist>
+
+            {% if form.nationality.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.nationality.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+          <div class="input-container">
+            <label for="email_address">Email</label>
+            {% if form.email_address.errors %}
+            <input type="email" id="email_address" placeholder="Enter Your Email Address" required />{{ form.email_address(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.email_address.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.email_address(class="form-control") }}
+          {% endif %}
+          </div>
+
+          <div class="input-group">
+            <div class="input-container">
+              <label for="password">Password</label>
+              {% if form.password.errors %}
+              {{ form.password(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.password.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.password(class="form-control") }}
+              {% endif %}
+              
+            </div>
+            <div class="input-container">
+              <label for="confirm-password">Confirm Password</label>
+              {% if form.confirm_password.errors %}
+              
+              {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.confirm_password.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.confirm_password(class="form-control") }}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="checkbox">
+            <label for="terms">
+              I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+            </label>
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="primary-btn">Create Account</button>
+          </div>
+        </form>
+
+        <div class="form-footer">
+          <p>Already Have an Account? <a href="{{ url_for('main.traveler_login') }}">Log in</a></p>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+  // Get references to elements
+  const modal = document.querySelector('.modal');
+  const overlay = document.querySelector('.modal-overlay');
+  const closeModalButton = document.getElementById('close-modal');
+
+  // Close and redirect to home when 'X' is clicked
+  closeModalButton.addEventListener('click', () => {
+    window.location.href = '{{ url_for("main.home") }}'; // Redirect to home page
+  });
+
+  // Close and redirect to home when clicking outside the modal
+  overlay.addEventListener('click', () => {
+    window.location.href = '{{ url_for("main.home") }}'; // Redirect to home page
+  });
+
+    </script>
+{% endblock %} 
+</body>
+</html>
+

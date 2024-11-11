@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - PinoyGabay</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+
+<!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="{{ url_for('main.home') }}" class="navbar-brand">PinoyGabay</a>
+      <div class="navbar-links collapse navbar-collapse" id="navbarNav">
+
+        {% if current_user.is_authenticated %}
+          {% if current_user.role == 'traveler' %}
+            <a class="nav-link" href="{{ url_for('main.account') }}" aria-label="Account">Account</a>
+            <a class="nav-link" href="{{ url_for('main.booking') }}" aria-label="Booking">Booking</a>
+
+          {% elif current_user.role == 'touroperator' %}
+            <a class="nav-link" href="{{ url_for('touroperator.touroperator_dashboard') }}" aria-label="Tour Operator Dashboard">Tour Operator</a>
+
+          {% elif current_user.role == 'tourguide' %}
+            <a class="nav-link" href="{{ url_for('tourguide.tourguide_dashboard') }}" aria-label="Tour Guide Dashboard">Tour Guide</a>
+
+          {% elif current_user.role == 'admin' %}
+            <a class="nav-link" href="{{ url_for('admin.admin_dashboard') }}" aria-label="Admin Dashboard">Admin</a>
+
+          {% endif %}
+
+          <a class="nav-link" href="{{ url_for('main.logout') }}" aria-label="Logout">Logout</a>
+
+        {% else %}
+          <a class="nav-link" href="{{ url_for('main.home') }}" aria-label="Home">Home</a>
+          <a class="nav-link" href="{{ url_for('main.traveler_register') }}" aria-label="Signup">Signup</a>
+          <a class="nav-link" href="{{ url_for('main.traveler_login') }}" aria-label="Login">Login</a>
+
+        {% endif %}
+
+      </div>
+    </div>
+  </nav>
+
+
+  <div>
+    {% block content %}
+ 
+    {% endblock %}
+  </div>
+
+</body>
+</html>

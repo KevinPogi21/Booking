@@ -1,0 +1,221 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header class="header">
+            <a href="#" class="logo">
+                <span style="color: #ff9f1c; font-weight: 800;">Pinoy</span><span style="font-weight: 800;">Gabay.</span>
+            </a>
+            <nav class="public-navbar">
+                <a href="{{ url_for('main.traveler_login') }}">Log In</a>
+                <a href="{{ url_for('main.traveler_register') }}">Sign Up</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-box">
+                <h1>“Experience Bolinao with BATOG: <span style="color: #ff9f1c; font-style: italic;">Bolinao Association of Tour Guides.</span>”</h1>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Germinal, Bolinao, Pangasinan</li>
+                    <li><i class="fas fa-envelope"></i> bolinaotourguides@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 0915 281 9287</li>
+                </ul>
+                <div class="btn-box">
+                    <a href="{{ url_for('main.booking') }}">Book Your Guide Now</a>
+                    <a href="#">Click to Learn More</a>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='BATOG.jpg') }}" alt="BATOG" class="hero-image">
+        </section>
+
+        <hr>
+
+        <!-- Tour Guides Section -->
+        <section class="tour-guide-section">
+            <div class="container-tg">
+                <h2 class="title-bol">
+                    Explore Personalized and Experiential Travel in Bolinao with Local Experts from BATOG
+                </h2>
+                <div class="bol-image">
+                    <img src="{{ url_for('static', filename='qttg.avif') }}" alt="Inviting Bolinao Landscape">
+                </div>
+                <button class="tg-button">See Tour Guides</button>
+            </div>
+        </section>
+
+        <!-- Tour Packages Section -->
+        <section id="tour-packages">
+            <h2>Available Tour <span style="color: #ff9f1c">Packages/Itineraries</span></h2> 
+                <a href="{{ url_for('main.tour_package') }}">See all</a>
+            <div class="package-container">
+                <div class="package-card">
+                    <img src="{{ url_for('static', filename='cave.webp') }}" alt="Cave Tour">
+                    <h3>Personalized</h3>
+                    <p>Explore the enchanted cave of Bolinao.</p>
+                    <button>View Package</button>
+                </div>
+                <div class="package-card">
+                    <img src="{{ url_for('static', filename='falls.jpg') }}" alt="Falls Tour">
+                    <h3>Falls</h3>
+                    <p>Discover the stunning waterfalls of Bolinao.</p>
+                    <button>View Package</button>
+                </div>
+                <div class="package-card">
+                    <img src="{{ url_for('static', filename='city.jpg') }}" alt="City Tour">
+                    <h3>City Tour</h3>
+                    <p>Explore the vibrant city life and heritage spots.</p>
+                    <button>View Package</button>
+                </div>
+                <div class="package-card">
+                    <img src="{{ url_for('static', filename='patar.webp') }}" alt="Patar Beach Tour">
+                    <h3>Patar Beach</h3>
+                    <p>Relax on the beautiful shores of Patar Beach.</p>
+                    <button>View Package</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Places Section -->
+        <section id="popular-places">
+            <hr>
+            <h2><span style="color: #ff9f1c">Popular</span> Destinations to Visit in Bolinao</h2>
+            <div class="popular-places-container">
+                <img src="{{ url_for('static', filename='download.jpeg') }}" alt="PP" class="pp-image">
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='D1 (1).jfif') }}" alt="Bolinao Beach">
+                    <h3>Bolinao Beach</h3>
+                    <p>Beautiful beaches and crystal-clear waters.</p>
+                </div>
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='D2 (1).jfif') }}" alt="Patar Beach">
+                    <h3>Patar Beach</h3>
+                    <p>Explore the water and stunning landscapes.</p>
+                </div>
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='D3 (1).jfif') }}" alt="Beach Resort">
+                    <h3>Beach Resort</h3>
+                    <p>Experience vibrant local culture and cuisine.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Activities Section -->
+        <section id="activities-bolinao">
+            <h2>What to Do in Bolinao</h2>
+            <div class="activities-container">
+                <div class="activity-card">
+                    <img src="{{ url_for('static', filename='s&d.webp') }}" alt="Snorkeling">
+                    <h3>Snorkeling & Diving</h3>
+                    <p>Discover vibrant marine life and coral reefs on a snorkeling adventure.</p>
+                </div>
+                <div class="activity-card">
+                    <img src="{{ url_for('static', filename='lighthouse.jpg') }}" alt="Lighthouse Visit">
+                    <h3>Visit Cape Bolinao Lighthouse</h3>
+                    <p>Enjoy panoramic views and explore the historical Cape Bolinao Lighthouse.</p>
+                </div>
+                <div class="activity-card">
+                    <img src="{{ url_for('static', filename='bolinao cuisine.webp') }}" alt="Culinary Experience">
+                    <h3>Local Cuisine</h3>
+                    <p>Savor the delicious and authentic flavors of Bolinao’s seafood dishes.</p>
+                </div>
+                <div class="activity-card">
+                    <img src="{{ url_for('static', filename='nature walks.jpg') }}" alt="Nature Walk">
+                    <h3>Nature Walks</h3>
+                    <p>Explore breathtaking landscapes, hidden caves, and tranquil tidal pools.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Tours Section -->
+        <section id="featured">
+            <hr>
+            <h2><span style="color: #ff9f1c;">Featured</span> Tours</h2>
+            <div class="f-container">
+                <div class="f-card">
+                    <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Best Experience">
+                    <h3>Best Experience</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="f-card">
+                    <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Best Summer">
+                    <h3>Best Summer</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="f-card">
+                    <img src="{{ url_for('static', filename='testimonial.jpg') }}" alt="Out of Words">
+                    <h3>Out of Words</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <img src="{{ url_for('static', filename='download.jpeg') }}" alt="Featured" class="f-image">
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@pinoygabay.com">support@pinoygabay.com</a></p>
+                    <p>Phone: +63 123 456 7890</p>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription Section -->
+                <div class="footer-section">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>CASSANO Grp. 2024. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+    </html>
+{% endblock content %}
+
+    
+
+

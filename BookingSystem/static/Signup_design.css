@@ -1,0 +1,398 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  overflow: auto; /* Enable scroll if needed  */
+
+}
+
+/* Modal Content */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 90%; /* Ensure it fits smaller screens */
+  padding: 80px;
+  background-color: #f7fff7;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  
+}
+
+/* Form Section */
+.form-section {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading and Subtitle */
+h1 {
+  font-size: 32px;
+  color: #2b2d42;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #4ecdc4;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Input Fields */
+.input-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-container label {
+  display:block;
+  margin-bottom: 5px;
+  color: #2b2d42;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4ecdc4;
+  outline: none;
+}
+
+/* Input Group for Side-by-Side Fields */
+.input-group {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Stack Inputs Vertically on Smaller Screens */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+}
+
+/* Checkbox and T&C */
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Wrap on small screens */
+}
+
+.checkbox a {
+  color: #4ecdc4;
+  text-decoration: none;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.primary-btn {
+  background-color: #ff9f1c;
+  color: #f7fff7;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 75%;
+}
+
+.primary-btn:hover {
+  background-color: #e68a00;
+}
+
+@media (max-width: 768px) {
+  .primary-btn {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+/* Footer */
+/* Form Footer: Spread Full Width at Bottom */
+.form-footer {
+  background-color: #1A535C;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto; /* Pushes the footer to the bottom of the container */
+  position: absolute; /* Keep the footer fixed to the bottom */
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.form-footer a {
+  color: #4ecdc4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #4ecdc4;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #2b2d42;
+}
+
+/* Adjust Padding and Layout on Small Screens */
+@media (max-width: 768px) {
+  .modal {
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .input-group {
+    flex-direction: column; /* Stack inputs vertically */
+  }
+
+  .primary-btn {
+    width: 100%; /* Full width button on small screens */
+  }
+
+  .checkbox {
+    justify-content: flex-start; /* Align left on smaller screens */
+    flex-wrap: wrap; /* Ensure wrapping */
+  }
+
+  .form-footer {
+    position: relative; /* Prevent footer overlap */
+    margin-top: 20px; /* Add space above footer */
+  }
+}
+
+
+
+
+/* Modal Wrapper to Namespace Styles */
+.modal-wrapper .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  overflow: auto;
+}
+
+.modal-wrapper .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 90%;
+  padding: 80px;
+  background-color: #f7fff7;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.modal-wrapper .form-section {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-wrapper h1 {
+  font-size: 32px;
+  color: #2b2d42;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.modal-wrapper .subtitle {
+  font-size: 18px;
+  color: #4ecdc4;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.modal-wrapper .input-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.modal-wrapper .input-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2b2d42;
+  font-weight: bold;
+}
+
+.modal-wrapper input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.modal-wrapper input:focus {
+  border-color: #4ecdc4;
+  outline: none;
+}
+
+.modal-wrapper .input-group {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .modal-wrapper .input-group {
+    flex-direction: column;
+  }
+}
+
+.modal-wrapper .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.modal-wrapper .checkbox a {
+  color: #4ecdc4;
+  text-decoration: none;
+}
+
+.modal-wrapper .button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-wrapper .primary-btn {
+  background-color: #ff9f1c;
+  color: #f7fff7;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 75%;
+}
+
+.modal-wrapper .primary-btn:hover {
+  background-color: #e68a00;
+}
+
+@media (max-width: 768px) {
+  .modal-wrapper .primary-btn {
+    width: 100%;
+  }
+}
+
+.modal-wrapper .form-footer {
+  background-color: #1A535C;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.modal-wrapper .form-footer a {
+  color: #4ecdc4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.modal-wrapper .form-footer a:hover {
+  text-decoration: underline;
+}
+
+.modal-wrapper .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #4ecdc4;
+  transition: color 0.3s;
+}
+
+.modal-wrapper .close-btn:hover {
+  color: #2b2d42;
+}
+
+@media (max-width: 768px) {
+  .modal-wrapper .modal {
+    padding: 20px;
+  }
+
+  .modal-wrapper .checkbox {
+    justify-content: flex-start;
+  }
+
+  .modal-wrapper .form-footer {
+    position: relative;
+    margin-top: 20px;
+  }
+}
+
+

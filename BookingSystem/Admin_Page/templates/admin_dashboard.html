@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+ 
+        <div class="dashboard-container">
+
+          <button class="btn-sidebar-toggle" id="sidebar-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+
+
+          <!-- Sidebar Navigation -->
+          <nav class="side-nav" id="side-nav">
+            <h2>Admin Dashboard</h2>
+            <ul>
+              <li><a href="#" class="nav-link active" data-tab="overview">Overview</a></li>
+              <li><a href="#" class="nav-link" data-tab="tour-management">User management</a></li>
+              <li><a href="#" class="nav-link" data-tab="admin-profile">Admin Profile</a></li>
+              <li><a href="{{ url_for('main.logout') }}"  class="tab-link">Log Out</a></li>
+            </ul>
+          </nav>
+      
+
+      
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="overview">
+              <h2>Overview</h2>
+              <p>Quick snapshot of system metrics and activities.</p>
+            </div>
+
+            <div class="tab-pane" id="tour-management">
+              <h2>Tour Guide & Operator Management</h2>
+              <p>Monitor and manage tours and operators here.</p>
+            
+                        <!-- Modal Trigger Button -->
+                        <button class="primary-btn" id="add-operator-btn">Add Tour Operator</button>
+
+                        <!-- Modal Overlay and Content -->
+                        <div class="modal-wrapper hidden" id="operator-modal-wrapper">
+                        <div class="modal-overlay" id="modal-overlay"></div>
+            
+                        <div class="modal">
+                            <button class="close-btn" id="close-operator-modal">&times;</button>
+                            <div class="form-section">
+                            <h1>Create Tour Operator Account</h1>
+                            <p class="subtitle">Fill in the required details to create an account.</p>
+            
+                            <form method="POST" id="operator-form" action="{{ url_for('admin.create_operator') }}">
+                              {{ form.hidden_tag() }}  <!-- CSRF token if using Flask-WTF -->
+
+                              <div class="input-container">
+                                <label for="name">Name</label>
+                                {{ form.name(class="input", placeholder="Enter Operator Name") }}
+                                {% if form.name.errors %}
+                                    <span class="error">{{ form.email.errors[0] }}</span>
+                                {% endif %}
+                              </div>
+
+
+                              <div class="input-container">
+                                <label for="municipal">Municipal</label>
+                                {{ form.municipal(class="input", placeholder="Enter Municipal Email") }}
+                                {% if form.municipal.errors %}
+                                    <span class="error">{{ form.municipal.errors[0] }}</span>
+                                {% endif %}
+                              </div>
+                              
+                              <div class="input-container">
+                                <label for="email">Email</label>
+                                {{ form.email(class="input", placeholder="Enter Operator Email") }}
+                                {% if form.email.errors %}
+                                    <span class="error">{{ form.email.errors[0] }}</span>
+                                {% endif %}
+                              </div>
+            
+                              <div class="input-container">
+                                <label for="password">Password</label>
+                                {{ form.password(class="input", placeholder="Enter Password") }}
+                                {% if form.password.errors %}
+                                    <span class="error">{{ form.password.errors[0] }}</span>
+                                {% endif %}
+                              </div>
+            
+                              <div class="input-container">
+                                <label for="confirm-password">Confirm Password</label>
+                                {{ form.confirm_password(class="input", placeholder="Confirm Password") }}
+                                {% if form.confirm_password.errors %}
+                                    <span class="error">{{ form.confirm_password.errors[0] }}</span>
+                                {% endif %}
+                              </div>
+                              <div class="input-container">
+                                <label for="contact_number">Contact Number</label>
+                                {{ form.contact_number(class="input", placeholder="Enter Contact Number") }}
+                                {% if form.contact_number.errors %}
+                                    <span class="error">{{ form.contact_number.errors[0] }}</span>
+                                {% endif %}
+                            </div>
+                                <button type="submit" class="primary-btn">{{ form.submit.label }}</button>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <h1 class="page-title">Tour Operators</h1>
+                            <div class="tour-guide-list">
+                                {% for operator in tour_operators %}
+                                    <div class="tour-guide-card">
+                                      <div class="profile-picture">
+                                        <img src="Image/doonaaaaa.jpg" alt="Tour Guide Profile Picture">
+                                      </div>
+                                        <div class="guide-info">
+                                            <h3 class="guide-name">{{ operator.user.first_name }}</h3>
+                                            <h4 class="guide-name">{{ operator.first_name }}</h4>
+                                            <button class="view-btn" onclick="redirectToProfile()">View Profile</button>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <p>No Tour Operators</p>
+                                {% endfor %}
+                        </div>
+
+                      </div>
+
+
+                        </div>
+                      </div>
+      
+            <div class="tab-pane" id="admin-profile">
+              <h2>Admin Profile</h2>
+              <div class="input-group">
+                <label>Name:</label>
+                <input type="text" id="admin-name" value="Admin Name" disabled />
+              </div>
+            </div>
+
+            <div class="tab-pane" id="logout">
+              <h2>Log Out</h2>
+              <button class="primary-btn" id="logout-btn">Logout</button>
+              <p>You have been logged out. Redirecting...</p>
+            </div>
+          </div>
+        </div>
+   
+      
+
+      <script src="{{ url_for('static', filename='admin.js') }}"></script>
+      
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

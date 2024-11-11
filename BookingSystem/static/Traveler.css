@@ -1,0 +1,1122 @@
+/* General Reset */
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+    
+    
+  }
+  h1 {
+    font-size: 32px;
+    color: #2b2d42;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+  
+  /* Body and Background */
+  body {
+    background-color: #f7fff7; /* Off White */
+    color: #2b2d42; /* Dark Charcoal */
+    padding: 0%;
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+ 
+    /* =======================
+   Header Styles
+======================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: #1A535C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100; 
+}
+
+.logo {
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.public-navbar a {
+  font-size: 18px;
+  color:  white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 33px;
+  margin-right: 20px;
+  transition: .3s;
+}
+
+.public-navbar a:hover {
+  color: #ff9f1c; /* Golden Orange */
+
+}
+
+
+
+  a {
+    color: #4ecdc4; /* Bright Turquoise */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #ff9f1c; /* Golden Orange */
+  }
+    
+  /* Navbar Styling */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #1A535C; /* Deep Cyan */
+    padding: 5px 5px;
+    color: white;
+    z-index: 100;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  }
+
+  /* Navbar Container with Body Alignment */
+  .navbar-container {
+    max-width: 100%; /* Full width */
+    padding-left: 10%; /* Same padding as the body */
+    padding-right: 10%; /* Same padding as the body */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+    
+  .navbar a {
+    font-size: 18px;
+    color:  white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 33px;
+    margin-right: 20px;
+    transition: .3s;
+  }
+
+  .navbar a:hover {
+    color: #ff9f1c; /* Golden Orange */
+  }
+
+  /* Navbar Links Adjustments */
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Navbar Adjustment on Small Screens */
+  @media (max-width: 480px) {
+    .navbar-container {
+      flex-direction: column; /* Stack links vertically */
+      gap: 10px;
+    }
+
+    .nav-link {
+      font-size: 16px; /* Adjust font size */
+    }
+  }
+
+  /* Profile Icon */
+  .profile-container {
+    display: flex;
+    align-items: center;
+    margin: 0%;
+  }
+
+  .profile-icon {
+    width: 100%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover; /* Prevent image distortion */
+    border: 2px solid #4ecdc4; /* Bright Turquoise border */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .profile-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+
+
+
+
+
+
+  /* Section Backgrounds */
+  .section-light {
+    background-color: #f0f0f0; /* Light Gray */
+    padding: 40px 20px;
+  }
+  
+
+  .container{
+    min-height: 100vh;
+    margin-top: 70px;
+  }
+
+  .page-title {
+    margin-top: 11
+    0px;
+  }
+
+  /* Tour Guide List - Responsive Grid Layout */
+  .tour-guide-list {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-left: 40px;
+    padding: 0px;
+    margin-top: 40px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /* Tour Guide Card - Flexbox for Consistent Layout */
+  .tour-guide-card {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Push button to the bottom */
+    align-items: stretch;
+    width: 100%; /* Ensure the card fills its grid column */
+    max-width: 380px; /* Maintain consistent width */
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    height: 100%; /* Let the card expand with its content */
+  }
+
+  /* Profile Picture Section */
+  .profile-picture {
+    width: 100%;
+    aspect-ratio: 16/9; /* Maintain consistent aspect ratio */
+    border-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    overflow: hidden;
+  }
+
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevent image distortion */
+  }
+
+  /* Guide Info Section */
+  .guide-info {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    flex-grow: 1; /* Allow this section to expand */
+    justify-content: space-between; /* Spread content evenly */
+    gap: 10px;
+    padding-top: 10px;
+    align-items: flex-start; /* Align content to the left */
+    width: 100%; /* Ensure content takes full width */
+  }
+
+  /* Guide Name */
+  .guide-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2b2d42; /* Dark Charcoal */
+    text-align: left; /* Ensure text aligns to the left */
+    width: 100%;
+  }
+
+  .guide-name span {
+    color: #ff9f1c; /* Golden Orange */
+  }
+
+
+
+  /* Price */
+  .price {
+    font-size: 16px;
+    color: #2b2d42; /* Dark Charcoal */
+    text-align: left; /* Ensure price aligns to the left */
+    margin-top: 0px;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure full width alignment */
+  }
+
+  /* Book Button */
+  .book-btn {
+    background-color: #ff9f1c; /* Golden Orange */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width button */
+    text-align: center;
+  }
+
+  .book-btn:hover {
+    background-color: #e68a00; /* Darker Orange on hover */
+  }
+
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .tour-guide-list {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+  }
+
+  
+  /* Forms */
+  form {
+    background-color: #f7fff7;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  input:focus {
+    border-color: #4ecdc4; /* Bright Turquoise */
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+
+  .form_container {
+    display: flex;
+    max-width: 1500px;
+    min-height: 100vh;
+    margin-top: 70px;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+    
+  /* Left Column */
+  .left-column {
+    flex: 65%;
+    flex-grow: 1;
+    margin-left: 40px;
+    padding: 0px;
+    margin-top: 40px;
+  }
+
+  /* Profile Overview - Adjusted Layout */
+  .profile-overview {
+    display: flex;
+    align-items: flex-start; /* Align picture and text to the top */
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Profile Picture */
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #4ecdc4;
+  }
+
+  /* Profile Details */
+  .profile-details {
+    padding-top: 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: column; /* Stack name and ratings vertically */
+    gap: 0px;
+    font-size: 24px;
+  }
+  .h2-guide-name span {
+    color: #ff9f1c;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 24px;
+  }
+
+  /* Ratings */
+  .ratings {
+    font-size: 18px;
+    color: #ff9f1c; /* Golden Orange */
+    font-size: 18px;
+    text-align: right;
+  }
+
+  /* Ensure the Profile Overview Adjusts on Smaller Screens */
+  @media (max-width: 600px) {
+    .profile-overview {
+      display: flex;
+      flex-direction: column; /* Stack image and text vertically */
+      align-items: center; /* Center-align contents horizontally */
+      gap: 10px; /* Add space between image and text */
+      margin-bottom: 20px;
+      width: 100%; /* Take full width */
+      max-width: 600px; /* Limit width */
+      margin: 0 auto; /* Center content horizontally */
+    }
+
+    .profile-pic {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Keep it proportional */
+    object-fit: cover; /* Ensure the image fits within the frame */
+    border-radius: 50%; /* Make the image circular */
+    border: 2px solid #4ecdc4; /* Bright Turquoise border */
+  }
+
+    .profile-details {
+      width: 100%; /* Ensure the profile details take full width */
+      text-align: center;
+    }
+  }
+
+  .availability-section,
+  .about-me,
+  .reason-to-choose,
+  .traveler-reviews {
+    margin-bottom: 30px;
+  }
+    
+  h2 {
+    font-size: 24px;
+    color: #2b2d42; /* Dark Charcoal */
+    margin-bottom: 10px;
+  }
+    
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+
+    /* Why Choose Me Section Row */
+  .why-choose-me-row {
+    display: flex; /* Display as a row initially */
+    justify-content: space-between; /* Space evenly between columns */
+    gap: 20px; /* Space between the two boxes */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  /* Characteristics and Skills Box Styling */
+  .characteristics-box,
+  .skills-box {
+    flex: 1; /* Make both boxes equal in width */
+    background-color: #e0f7f5; /* Light Turquoise Background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
+
+  /* Section Headings */
+  .characteristics-box h3,
+  .skills-box h3 {
+    font-size: 20px;
+    color: #4ecdc4; /* Bright Turquoise */
+    margin-bottom: 15px;
+  }
+
+  /* Checklist Styling */
+  .checklist {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+  }
+
+  .checklist li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #2b2d42; /* Dark Charcoal */
+  }
+
+  /* Checkmark Styling */
+  .checkmark {
+    color: #ff9f1c; /* Golden Orange */
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  /* Why Choose Me Section Row */
+  .why-choose-me-row {
+    display: flex; /* Display as a row initially */
+    justify-content: space-between; /* Space evenly between columns */
+    gap: 20px; /* Space between the two boxes */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  /* Characteristics and Skills Box Styling */
+  .characteristics-box,
+  .skills-box {
+    flex: 1; /* Make both boxes equal in width */
+    background-color: #e0f7f5; /* Light Turquoise Background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
+
+  /* Section Headings */
+  .characteristics-box h3,
+  .skills-box h3 {
+    font-size: 20px;
+    color: #4ecdc4; /* Bright Turquoise */
+    margin-bottom: 15px;
+  }
+
+  /* Checklist Styling */
+  .checklist {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+  }
+
+  .checklist li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #2b2d42; /* Dark Charcoal */
+  }
+
+  /* Checkmark Styling */
+  .checkmark {
+    color: #ff9f1c; /* Golden Orange */
+    margin-right: 8px;
+    font-weight: bold;
+  }
+
+
+  /* Responsive Layout - Stack Skills Box Below Characteristics Box */
+  @media (max-width: 768px) {
+    .why-choose-me-row {
+      flex-direction: column; /* Stack vertically on smaller screens */
+    }
+
+    .characteristics-box,
+    .skills-box {
+      width: 100%; /* Full width for each box on smaller screens */
+    }
+  }
+
+
+  /* Traveler Reviews Section */
+  .traveler-reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    justify-content: left;
+    margin: 0 auto;
+    padding: 0px;
+    gap: 20px;
+
+  }
+
+  /* Review Card Box */
+  .review-card {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0;
+  }
+
+  /* Tour Image at the Top */
+  .tour-image {
+    width: 100%; /* Full width of the parent container */
+    aspect-ratio: 2 / 1; /* Maintain a slightly rectangular aspect ratio */
+    object-fit: cover; /* Ensure the image fills the space without distortion */
+    border-radius: 6px 0px  0px; /* Optional rounded corners */
+    overflow: hidden; /* Hide overflow to crop excess image parts */
+  }
+
+  /* Review Content */
+  .review-content {
+    padding: 15px;
+  }
+
+  /* Traveler Info */
+  .traveler-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* Traveler Picture */
+  .traveler-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4ecdc4;
+  }
+
+  /* Traveler Details */
+  .traveler-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .traveler-details h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b2d42;
+  }
+
+  .tour-name {
+    margin-top: -5px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* Ratings */
+  .ratings {
+    margin-top: -7px;
+    font-size: 14px;
+    color: #ff9f1c;
+  }
+
+  /* Review Text */
+  .review-text {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #2b2d42;
+    line-height: 1.5;
+  }
+
+  /* Review Footer */
+  .review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #4ecdc4;
+  }
+
+.toured-by .tour-guide-name {
+  font-weight: bold;
+  color: #ff9f1c;
+}
+
+  /* See More Button */
+  .see-more-btn {
+    background-color: #4ecdc4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .see-more-btn:hover {
+    background-color: #1a535c; /* Deep Cyan */
+  }
+
+
+    /* Adjust Review Cards for Small Screens */
+    @media (max-width: 600px) {
+      .traveler-reviews {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 15px; /* Add space between reviews */
+      }
+  
+      .review-card {
+        flex-direction: column; /* Stack content vertically */
+        padding: 15px;
+      }
+  
+      .tour-image {
+        aspect-ratio: 4 / 3; /* Keep the same ratio on small screens */
+        height: auto; /* Adjust height based on width */
+      }
+  
+    }
+  
+  /* Right Column (Sticky Booking Form) */
+  .right-column {
+    flex: 35%;
+    margin-top: 0; /* Remove margin to avoid additional gap */
+  }
+  
+  .booking-form {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    height: fit-content;
+    padding: 20px;
+    top: 110px; /* Ensure space between the navbar and the panel */
+  }
+  
+  .booking-form h2 {
+    padding-top: 20px;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2b2d42; /* Dark Charcoal */
+  }
+  
+  .booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2b2d42;
+  }
+  
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0,3s;
+  }
+
+  .booking-form input:focus,
+  .booking-form select:focus,
+  .booking-form textarea:focus {
+    border-color: #4ecdc4; /* Bright Turquoise border on focus */
+    background-color: #ffffff; /* White background on focus */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on focus */
+  }
+  
+  .booking-form textarea {
+    resize: none;
+  }
+
+  /* Price and Button Row */
+  .price-button-row {
+    display: flex; /* Arrange items in a row */
+    justify-content: space-between; /* Space between price and button */
+    align-items: center; /* Align vertically in the center */
+    margin-top: 15px; /* Optional: Add spacing above the row */
+  }
+
+  /* Price Label */
+  .price-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b2d42; /* Dark Charcoal */
+  }
+
+  /* Confirm Booking Button */
+  .confirm-btn {
+    background-color: #ff9f1c; /* Golden Orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  /* Hover Effect for Button */
+  .confirm-btn:hover {
+    background-color: #e68a00; /* Darker Orange on hover */
+  }
+
+
+  
+  /* Booking Form - Responsive Adjustments */
+  @media (max-width: 768px) {
+    .price-button-row {
+      flex-direction: column; /* Stack the price and button vertically */
+      align-items: stretch; /* Full width for both items */
+      gap: 15px; /* Add some space between the elements */
+      margin-top: 10px; /* Add spacing above */
+    }
+  }
+
+  /* Footer Booking Bar */
+  .footer-booking-bar {
+    display: none; /* Default is hidden */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4ecdc4;
+    color: white;
+    padding: 15px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on top */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    gap: 10px;
+  }
+  
+  /* Footer Button */
+  .footer-btn {
+    background-color: #ff9f1c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .footer-btn:hover {
+    background-color: #e68a00;
+  }
+  
+  /* Add margin to the bottom of the booking form to avoid overlap */
+  .booking-form {
+    margin-bottom: 80px;
+  }
+  
+  /* Show Footer Booking Bar on Small Screens Only */
+  @media (max-width: 768px) {
+    .footer-booking-bar {
+      display: flex; /* Visible only on small screens */
+    }
+  }
+
+
+  /* Modal Overlay */
+  .modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    backdrop-filter: blur(5px); /* Blur the background */
+    z-index: 200; /* Above everything */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 400px;
+    position: relative;
+  }
+
+  /* Styling for the Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #4ecdc4;
+    transition: color 0.3s;
+  }
+
+  .close-btn:hover {
+    color: #2b2d42;
+  }
+
+  /* Note Section Styling */
+  .note-section {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05); /* Light black with transparency */
+    padding: 15px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    width: 90%; /* Adapts to parent container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+
+  /* Text Styling */
+  .note-section p {
+    margin: 0;
+    font-size: 14px;
+    color: #2b2d42; /* Dark Charcoal */
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: auto;
+  }
+
+  /* Thank You Popup */
+  .thank-you-popup {
+    display: none;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 300; /* Above the modal */
+  }
+
+  /* Responsive Adjustments for Left and Right Columns */
+  @media (max-width: 900px) {
+    .form_container {
+      flex-direction: column; /* Stack the columns vertically */
+      gap: 30px;
+    }
+
+    .left-column, .right-column {
+      width: 100%; /* Full width on smaller screens */
+      flex: 1; /* Ensure both sections grow equally */
+    }
+
+    .booking-form {
+      position: relative; /* Remove sticky on mobile */
+      margin-top: 20px; /* Add spacing */
+    }
+  }
+
+  /* Reduce Padding and Font Sizes on Small Screens */
+  @media (max-width: 480px) {
+    .booking-form {
+      padding: 20px;
+    }
+
+    .confirm-btn {
+      font-size: 14px; /* Adjust button text size */
+    }
+
+    .price-label {
+      font-size: 16px; /* Reduce font size */
+    }
+
+    .note-section p {
+      font-size: 12px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Available dates in green */
+/* Available dates in green */
+.flatpickr-day.available-day {
+  background-color: #4ecdc4 !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.flatpickr-day.unavailable-day {
+  background-color: #e63946 !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+/* Notification Bell Icon !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-bell {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.bell-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+
+/* Notification Dropdown */
+.notification-dropdown {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 50px;
+  right: 1;
+  width: 350px;
+  max-height: 300px;
+  background-color: #1A535C; /* Deep Cyan */
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+  z-index: 10;
+  font-family: Arial, sans-serif;
+
+}
+
+.notification-dropdown h3 {
+  margin: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.view-all-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4ecdc4; /* Bright Turquoise */
+  color: #1A535C;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+}
+
+.view-all-btn:hover {
+  background-color: #1a535c; /* Golden Orange */
+  color: white;
+}
+
+/* Show dropdown when active */
+.notification-container.active .notification-dropdown {
+  display: block;
+}
+
+
+  /* Icon Styles!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  .icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  /* Notification Icon */
+  .notification .notification-count {
+    position: absolute;
+    top: -5px;
+    right: -1px;
+    background-color: #ff595e; /* Red background for notification count */
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: white;
+  }
+  
+  span.dark-mode {
+    font-size: 24;
+    color: white;
+  }
+  
+  /* Dark Mode Icon */
+  .dark-mode-toggle {
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* Dark Mode Background */
+  body.dark-mode {
+    background-color: #2b2d42; /* Dark Background */
+    color: #f7fff7; /* Light Text */
+  }
+  
+  .navbar.dark-mode {
+    background-color: #1a1a2e; /* Darker Navbar */
+    color: white;
+  }
+  
+  .profile-icon.dark-mode {
+    border-color: #f7fff7; /* Adjust profile picture border in dark mode */
+  }
+  
+  /* Additional Dark Mode Toggle Styles */
+  .dark-mode-icon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+  }
+
+
+
+
+
+
+
+
